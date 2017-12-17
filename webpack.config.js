@@ -1,9 +1,9 @@
-var path = require('path');
-var webpack = require('webpack');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var pkg = require('./package.json');
+const path = require('path');
+const webpack = require('webpack');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const pkg = require('./package.json');
 
 module.exports = {
   devtool: 'source-map',
@@ -17,7 +17,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'public'),
+    path: path.join(process.cwd(), 'public'),
     publicPath: '/'
   },
   plugins: [
@@ -25,10 +25,17 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('index.css'),
     new HtmlWebpackPlugin({
       template: 'app/index.pug'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: function (module) {
+        // this assumes your vendor imports exist in the node_modules directory
+        return module.context && module.context.includes("node_modules");
+      }
     }),
     new BrowserSyncPlugin({
       // browse to http://localhost:3000/ during development,
@@ -39,23 +46,25 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         include: path.join(__dirname, 'app'),
-        loader: 'ng-annotate!babel'
+        use: ['ng-annotate-loader','babel-loader']
       },
       {
         test: /\.scss$/,
         include: path.join(__dirname, 'app'),
-        // loader: 'style!css!sass',
-        loader: ExtractTextPlugin.extract('style-loader',['css-loader', 'sass-loader']),
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       },
       {
         test: /\.pug$/,
         include: path.join(__dirname, 'app'),
-        loader: 'pug'
+        use: 'pug-loader'
       },
     ]
   }
-}
+};
