@@ -85,7 +85,9 @@
     "tslint": "~5.11.0",
     "typescript": "~3.5.3",
     "@nrwl/workspace": "8.12.2",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "cypress": "^3.8.2",
+    "@nrwl/cypress": "8.12.2"
   },
   "jest": {
     "preset": "jest-preset-angular",
