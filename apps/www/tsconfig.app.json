@@ -1,10 +1,12 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../out-tsc/app",
-    "types": ["node"]
+    "outDir": "../../dist/out-tsc",
+    "types": [
+      "node"
+    ]
   },
-  "include":[
+  "include": [
     "./**/*.ts",
     "../node_modules/@gotloop/lib/**/*.ts"
   ],
