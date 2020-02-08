@@ -23,13 +23,8 @@
             "polyfills": "apps/www/src/polyfills.ts",
             "tsConfig": "apps/www/tsconfig.app.json",
             "preserveSymlinks": true,
-            "assets": [
-              "apps/www/src/favicon.ico",
-              "apps/www/src/assets"
-            ],
-            "styles": [
-              "apps/www/src/styles.scss"
-            ],
+            "assets": ["apps/www/src/favicon.ico", "apps/www/src/assets"],
+            "styles": ["apps/www/src/styles.scss"],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "apps/www/src/",
@@ -102,17 +97,10 @@
             "polyfills": "apps/www/src/polyfills.ts",
             "tsConfig": "apps/www/tsconfig.spec.json",
             "karmaConfig": "apps/www/karma.conf.js",
-            "styles": [
-              "apps/www/src/styles.scss"
-            ],
-            "assets": [
-              "apps/www/src/favicon.ico",
-              "apps/www/src/assets"
-            ],
+            "styles": ["apps/www/src/styles.scss"],
+            "assets": ["apps/www/src/favicon.ico", "apps/www/src/assets"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/sass"
-              ]
+              "includePaths": ["src/sass"]
             }
           }
         },
@@ -123,9 +111,7 @@
               "apps/www/tsconfig.app.json",
               "apps/www/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -151,9 +137,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -171,10 +155,7 @@
               "libs/api-model/tsconfig.lib.json",
               "libs/api-model/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api-model/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/api-model/**"]
           }
         },
         "test": {
@@ -183,6 +164,37 @@
             "jestConfig": "libs/api-model/jest.config.js",
             "tsConfig": "libs/api-model/tsconfig.spec.json"
           }
+        }
+      }
+    },
+    "simpl": {
+      "projectType": "library",
+      "root": "libs/simpl",
+      "sourceRoot": "libs/simpl/src",
+      "prefix": "gotloop",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/simpl/tsconfig.lib.json",
+              "libs/simpl/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/simpl/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/simpl/jest.config.js",
+            "tsConfig": "libs/simpl/tsconfig.spec.json",
+            "setupFile": "libs/simpl/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

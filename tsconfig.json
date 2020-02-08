@@ -15,7 +15,8 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "paths": {
-      "@gotloop/api-model": ["libs/api-model/src/index.ts"]
+      "@gotloop/api-model": ["libs/api-model/src/index.ts"],
+      "@gotloop/simpl": ["libs/simpl/src/index.ts"]
     },
     "rootDir": "."
   },

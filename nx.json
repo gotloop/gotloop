@@ -16,6 +16,9 @@
     },
     "api-model": {
       "tags": []
+    },
+    "simpl": {
+      "tags": []
     }
   }
 }
