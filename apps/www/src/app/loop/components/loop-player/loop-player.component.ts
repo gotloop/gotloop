@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { LoopModel } from '@gotloop/lib';
+import { LoopModel } from '@gotloop/api-model';
 
 @Component({
   selector: 'glp-loop-player',

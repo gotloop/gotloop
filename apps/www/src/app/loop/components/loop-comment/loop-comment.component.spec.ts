@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { v4 } from 'uuid';
 
+import { CommentModel } from '@gotloop/api-model';
+
 import { LoopCommentComponent } from './loop-comment.component';
-import { CommentModel } from '@gotloop/lib';
-import { ObjectUnsubscribedError } from 'rxjs';
 
 describe('LoopCommentComponent', () => {
   let component: LoopCommentComponent;

@@ -13,6 +13,9 @@
     },
     "www-e2e": {
       "tags": []
+    },
+    "api-model": {
+      "tags": []
     }
   }
 }

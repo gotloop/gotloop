@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoopCommentsComponent } from './loop-comments.component';
 import { LoopCommentComponent } from '../loop-comment/loop-comment.component';
-import { CommentModel } from '@gotloop/lib';
+import { CommentModel } from '@gotloop/api-model';
 
 describe('LoopCommentsComponent', () => {
   let component: LoopCommentsComponent;

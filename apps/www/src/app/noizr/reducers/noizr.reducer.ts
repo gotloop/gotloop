@@ -1,6 +1,6 @@
 
 import { NoizrActions, NoizrActionTypes } from '../actions/noizr.actions';
-import { Settings } from '@gotloop/lib';
+import { Settings } from '@gotloop/api-model';
 
 export interface State {
   id?: string;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IconCode } from 'src/app/shell/components/icon/icon-code.enum';
+import { IconCode } from '../../../shell/components/icon/icon-code.enum';
 
 @Component({
   selector: 'glp-icons-page',

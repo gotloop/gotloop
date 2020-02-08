@@ -1,6 +1,6 @@
 
 import { LoopActions, LoopActionTypes } from '../actions/loop.actions';
-import { LoopModel } from '@gotloop/lib';
+import { LoopModel } from '@gotloop/api-model';
 
 /** Loop module state */
 export interface State {

@@ -32,7 +32,8 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/",
+                "apps/www/src/",
+                "apps/www/src/styles",
                 "node_modules/"
               ]
             },
@@ -153,6 +154,34 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        }
+      }
+    },
+    "api-model": {
+      "root": "libs/api-model",
+      "sourceRoot": "libs/api-model/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/api-model/tsconfig.lib.json",
+              "libs/api-model/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-model/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api-model/jest.config.js",
+            "tsConfig": "libs/api-model/tsconfig.spec.json"
           }
         }
       }

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoopModel, loopFactory } from '@gotloop/lib';
+import { LoopModel, loopFactory } from '@gotloop/api-model';
 
 import { LoopPlayerComponent } from './loop-player.component';
 import { LoopCommentsComponent } from '../loop-comments/loop-comments.component';

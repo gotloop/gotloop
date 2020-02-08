@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { RandomFactoryService } from 'src/app/core/services/random-factory.service';
+import { RandomFactoryService } from '../../core/services/random-factory.service';
 import { Observable, BehaviorSubject } from 'rxjs';
 
-// import { LoopModel } from '@gotloop/lib';
+// import { LoopModel } from '@gotloop/api-model';
 
 @Injectable({
   providedIn: 'root'

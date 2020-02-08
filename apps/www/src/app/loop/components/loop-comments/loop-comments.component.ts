@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CommentModel } from '@gotloop/lib';
+import { CommentModel } from '@gotloop/api-model';
 
 @Component({
   selector: 'glp-loop-comments',
