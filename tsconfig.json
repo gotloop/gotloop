@@ -21,6 +21,6 @@
     "rootDir": "."
   },
   "angularCompilerOptions": {
-    "enableIvy": true
+    "enableIvy": false
   }
 }
