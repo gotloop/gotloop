@@ -20,7 +20,7 @@ import { EffectsModule } from '@ngrx/effects';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     // internals
     AppRoutingModule,
     CoreModule,

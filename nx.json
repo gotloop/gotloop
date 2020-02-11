@@ -9,10 +9,11 @@
   },
   "projects": {
     "www": {
-      "tags": []
+      "tags": ["type:app"]
     },
     "www-e2e": {
-      "tags": []
+      "tags": ["type:e2e"],
+      "implicitDependencies": ["www"]
     },
     "api-model": {
       "tags": []
@@ -22,6 +23,21 @@
     },
     "api": {
       "tags": []
+    },
+    "api-e2e":{
+      "tags": ["type:e2e"],
+      "implicitDependencies": ["adm"]
+    },
+    "ssr": {
+      "tags": []
+    },
+    "adm": {
+      "tags": ["type:app"],
+      "implicitDependencies": ["api-model"]
+    },
+    "adm-e2e": {
+      "tags": ["type:e2e"],
+      "implicitDependencies": ["adm"]
     }
   }
 }
