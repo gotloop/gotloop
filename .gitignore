@@ -9,3 +9,5 @@ node_modules/
 dist/
 data/minio/*
 data/mysql/*
+
+.env
