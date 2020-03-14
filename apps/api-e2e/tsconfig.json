@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["cucumber", "node"]
+  },
+  "include": ["**/*.ts", "**/*.js"]
+}
