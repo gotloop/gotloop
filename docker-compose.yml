@@ -66,7 +66,7 @@ services:
     depends_on:
       - api
 
-  # run end-to-end tests and display html reports:
+  # run end-to-end tests on demand and display html reports:
   e2e:
     build: .
     restart: always
@@ -81,7 +81,7 @@ services:
     depends_on:
       - www
 
-  # run end-to-end tests and display html reports:
+  # run performance tests on demand and display html reports:
   prf:
     build: .
     ports:

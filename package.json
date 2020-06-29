@@ -110,17 +110,5 @@
     "tslint": "~5.11.0",
     "typescript": "~3.5.3",
     "webpack-cli": "^3.1.0"
-  },
-  "jest": {
-    "preset": "jest-preset-angular",
-    "moduleNameMapper": {
-      "json2typescript": "<rootDir>/node_modules/json2typescript"
-    },
-    "transformIgnorePatterns": [
-      "node_modules/(?!(@ngrx|json2typescript|@gotloop))"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupJest.ts"
-    ]
   }
 }
