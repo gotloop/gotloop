@@ -1,19 +1,17 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "types": [
       "node"
     ]
   },
-  "include": [
-    "./**/*.ts",
-    "../node_modules/@gotloop/lib/**/*.ts"
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
   ],
-  "exclude": [
-    "setupJest.ts",
-    "setupKarma.ts",
-    "**/*.spec.ts",
-    "../node_modules/@gotloop/lib/**/*.spec.ts"
+  "include": [
+    "./**/*.d.ts",
+    "../node_modules/@gotloop/lib/**/*.ts"
   ]
 }

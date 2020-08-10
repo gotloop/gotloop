@@ -6,7 +6,7 @@ export enum BoxType {
   Filter,
 }
 
-@JsonObject()
+@JsonObject('BoxUI')
 export class BoxUI {
   @JsonProperty('x')
   public x: number;
@@ -18,6 +18,7 @@ export class BoxUI {
   h: number;
 }
 
+@JsonObject('Box')
 export default class Box {
   @JsonProperty('i')
   id: string;

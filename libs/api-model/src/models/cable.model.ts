@@ -1,6 +1,6 @@
 import { JsonProperty, JsonObject } from 'json2typescript';
 
-@JsonObject()
+@JsonObject('CableModel')
 export class CableModel {
 @JsonProperty()
 id: string;

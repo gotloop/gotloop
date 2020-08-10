@@ -1,6 +1,6 @@
 import { JsonProperty, JsonObject } from 'json2typescript';
 
-@JsonObject()
+@JsonObject('PresetModel')
 export class PresetModel {
     @JsonProperty()
     public id: string;

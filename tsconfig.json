@@ -1,26 +1,50 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
+
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+*/
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": ".",
-    "downlevelIteration": true,
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"],
-    "paths": {
-      "@gotloop/api-model": ["libs/api-model/src/index.ts"],
-      "@gotloop/simpl": ["libs/simpl/src/index.ts"]
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/www/tsconfig.app.json"
     },
-    "rootDir": "."
-  },
-  "angularCompilerOptions": {
-    "enableIvy": false
-  }
+    {
+      "path": "./apps/www/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/www/tsconfig.server.json"
+    },
+    {
+      "path": "./e2e/tsconfig.e2e.json"
+    },
+    {
+      "path": "./libs/api-model/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/simpl/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/api/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/api/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/ssr/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/ssr/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/adm/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/adm/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/adm-e2e/tsconfig.e2e.json"
+    }
+  ]
 }

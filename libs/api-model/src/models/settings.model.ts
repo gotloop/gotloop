@@ -1,24 +1,24 @@
 import { JsonProperty, JsonObject } from 'json2typescript';
 
-@JsonObject()
+@JsonObject('SettingsNode')
 export class SettingsNode {
     inputs?: SettingsLink[];
     outputs?: SettingsLink[];
     params: [];
 }
 
-@JsonObject()
+@JsonObject('SettingsLink')
 export class SettingsLink {
 
 }
 
-@JsonObject()
+@JsonObject('SettingsParam')
 export class SettingsParam {
     key:string;
     val: string;
 }
 
-@JsonObject()
+@JsonObject('Settings')
 export class Settings {
     @JsonProperty()
     public uuid: string;

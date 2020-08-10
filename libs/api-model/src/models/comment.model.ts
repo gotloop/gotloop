@@ -5,7 +5,7 @@ import { UserModel } from './user.model';
 /**
  * Modelize a user comment on a loop.
  */
-@JsonObject()
+@JsonObject('CommentModel')
 export class CommentModel {
   @JsonProperty('uuid')
   public uuid: string;

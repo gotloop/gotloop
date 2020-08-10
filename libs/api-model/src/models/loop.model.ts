@@ -5,7 +5,7 @@ import { CommentModel } from './comment.model';
 /**
  * Loop is our main model class.
  */
-@JsonObject()
+@JsonObject('LoopModel')
 export class LoopModel {
   @JsonProperty('title')
   public title: string;

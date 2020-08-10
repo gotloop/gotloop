@@ -3,5 +3,8 @@
   "rules": {
     "directive-selector": [true, "attribute", "gotloop", "camelCase"],
     "component-selector": [true, "element", "gotloop", "kebab-case"]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
   }
 }

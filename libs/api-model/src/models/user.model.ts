@@ -1,6 +1,6 @@
 import { JsonProperty, JsonObject } from 'json2typescript';
 
-@JsonObject()
+@JsonObject('UserModel')
 export class UserModel {
   @JsonProperty('name')
   public name: string;
