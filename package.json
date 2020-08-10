@@ -44,6 +44,8 @@
     "@nestjs/common": "^7.4.2",
     "@nestjs/core": "^7.4.2",
     "@nestjs/platform-express": "^7.4.2",
+    "@nestjs/swagger": "^4.5.12",
+    "@nestjs/typeorm": "^7.1.0",
     "@ngrx/effects": "^9.2.0",
     "@ngrx/entity": "^9.2.0",
     "@ngrx/router-store": "^9.2.0",
@@ -73,6 +75,7 @@
     "sass-breakpoints": "^2.1.0",
     "tone": "^14.7.39",
     "tslib": "^2.0.0",
+    "typeorm": "^0.2.25",
     "uuid": "^8.3.0",
     "xliff": "^5.2.0",
     "zone.js": "~0.10.3"
