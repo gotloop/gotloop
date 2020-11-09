@@ -91,6 +91,7 @@
     "@ngrx/schematics": "^9.2.0",
     "@nrwl/angular": "10.0.10",
     "@nrwl/cypress": "10.0.10",
+    "@nrwl/jest": "10.0.10",
     "@nrwl/nest": "10.0.10",
     "@nrwl/node": "10.0.10",
     "@nrwl/workspace": "10.0.10",
