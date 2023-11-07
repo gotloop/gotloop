@@ -12,3 +12,4 @@ data/minio/*
 data/mysql/*
 
 .env
+.nx/cache
