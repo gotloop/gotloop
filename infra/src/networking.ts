@@ -36,7 +36,7 @@ export const vpcPeering = new gcp.servicenetworking.Connection(`${resourcePrefix
 export const vpcConnector = new gcp.vpcaccess.Connector(`${resourcePrefix}gotloop-connector`, {
   region,
   ipCidrRange: "10.8.0.0/28",
-  network: network.id,
+  network: network.name,
   machineType: "e2-micro",
   minInstances: 2,
   maxInstances: 3,

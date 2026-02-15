@@ -14,6 +14,13 @@ import { registryUrl } from "./registry";
 import { vpcConnector } from "./networking";
 import { databaseUrlSecret, googleApiKeySecret, grantSecretAccess } from "./secrets";
 
+/** Dedicated service account for Cloud Run services */
+const cloudRunSa = new gcp.serviceaccount.Account(`${resourcePrefix}cloud-run-sa`, {
+  accountId: `${resourcePrefix}cloud-run`,
+  displayName: "GotLoop Cloud Run Service Account",
+  project,
+});
+
 /** Service name suffix for staging per-PR deploys */
 const serviceSuffix = sha7 ? `-${sha7}` : "";
 
@@ -24,6 +31,7 @@ export const apiService = new gcp.cloudrunv2.Service(`${resourcePrefix}api${serv
   project,
   ingress: isProduction ? "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" : "INGRESS_TRAFFIC_ALL",
   template: {
+    serviceAccount: cloudRunSa.email,
     scaling: {
       minInstanceCount: minInstances,
       maxInstanceCount: maxInstances,
@@ -58,7 +66,7 @@ export const apiService = new gcp.cloudrunv2.Service(`${resourcePrefix}api${serv
         ],
         resources: {
           limits: {
-            cpu: isProduction ? "1" : "1",
+            cpu: isProduction ? "1" : "0.5",
             memory: isProduction ? "512Mi" : "256Mi",
           },
         },
@@ -67,13 +75,8 @@ export const apiService = new gcp.cloudrunv2.Service(`${resourcePrefix}api${serv
   },
 });
 
-// Grant secret access to the API service account
-grantSecretAccess(
-  `${resourcePrefix}api`,
-  apiService.template.apply(
-    (t) => t?.serviceAccount || `${project}@appspot.gserviceaccount.com`
-  ) as pulumi.Output<string>
-);
+// Grant secret access to the Cloud Run service account
+grantSecretAccess(`${resourcePrefix}cloud-run`, cloudRunSa.email);
 
 // Make API publicly accessible (IAM invoker)
 const apiInvoker = new gcp.cloudrunv2.ServiceIamMember(`${resourcePrefix}api-invoker`, {
@@ -91,6 +94,7 @@ export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www${serv
   project,
   ingress: isProduction ? "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" : "INGRESS_TRAFFIC_ALL",
   template: {
+    serviceAccount: cloudRunSa.email,
     scaling: {
       minInstanceCount: minInstances,
       maxInstanceCount: maxInstances,
@@ -101,7 +105,7 @@ export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www${serv
         ports: { containerPort: 4000 },
         resources: {
           limits: {
-            cpu: isProduction ? "1" : "1",
+            cpu: isProduction ? "1" : "0.5",
             memory: isProduction ? "512Mi" : "256Mi",
           },
         },
