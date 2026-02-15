@@ -50,7 +50,7 @@ jobs:
         uses: pulumi/actions@v6
         with:
           command: destroy
-          stack-name: gotloop/staging-pr-${{ github.event.pull_request.number }}
+          stack-name: staging-pr-${{ github.event.pull_request.number }}
           remove: true
           work-dir: infra
         env:
