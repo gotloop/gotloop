@@ -23,6 +23,7 @@
         "styles": ["apps/www/src/styles.css"],
         "scripts": [],
         "allowedCommonJsDependencies": ["json2typescript"],
+        "outputMode": "server",
         "server": "apps/www/src/main.server.ts",
         "prerender": false,
         "ssr": {
