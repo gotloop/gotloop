@@ -18,6 +18,7 @@ export const sqlInstance = new gcp.sql.DatabaseInstance(
     region,
     project,
     settings: {
+      edition: "ENTERPRISE",
       tier: cloudSqlTier,
       availabilityType: isProduction ? "REGIONAL" : "ZONAL",
       backupConfiguration: {
