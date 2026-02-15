@@ -1,0 +1,29 @@
+.card {
+  height: auto;
+  border-radius: 1em;
+  margin: 20px;
+  background-color: #fbfbfb;
+  box-shadow: 0 0 1em color-mix(in srgb, var(--color-grey) 25%, transparent);
+}
+.card .card-header {
+  border-radius: 1em 1em 0 0;
+  background-color: var(--color-header);
+  width: 100%;
+  min-height: 2em;
+  position: relative;
+}
+.card .card-header ::ng-deep h1,
+.card .card-header ::ng-deep h2 {
+  padding: 0.5em 1em;
+  color: white;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.card .card-middle {
+  margin: 0 20px;
+}
+.card .card-footer {
+  border-radius: 0 0 1em 1em;
+  background-color: #fbfbfb;
+  min-height: 1em;
+}

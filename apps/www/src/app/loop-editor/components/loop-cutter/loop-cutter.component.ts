@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'glp-loop-cutter',
   templateUrl: './loop-cutter.component.html',
-  styleUrls: ['./loop-cutter.component.scss'],
+  styleUrls: ['./loop-cutter.component.css'],
   standalone: true,
   imports: [FormsModule],
 })

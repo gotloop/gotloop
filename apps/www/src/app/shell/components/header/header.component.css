@@ -1,22 +1,25 @@
-@import '../../../../styles/settings';
-@import 'sass-breakpoints/index';
+@import '../../../../styles/breakpoints.css';
 
 .gotloop-header {
-  background: $head-color;
-  height: $header-height - $common-margin * 2;
-  padding: $common-margin;
+  background: var(--color-header);
+  height: calc(var(--header-height) - var(--common-margin) * 2);
+  padding: var(--common-margin);
   position: fixed;
   z-index: 9001;
   top: 0;
   width: 100%;
   display: flex;
   flex-direction: row;
-  line-height: $header-text-height;
-  box-shadow: 0 0 1em rgba($main-color, 0.25);
-  > * {
-    color: $main-color;
-  }
-  @include breakpoint('sm', 'md') {
+  line-height: var(--header-text-height);
+  box-shadow: 0 0 1em color-mix(in srgb, var(--color-main) 25%, transparent);
+}
+
+.gotloop-header > * {
+  color: var(--color-main);
+}
+
+@media (--viewport-sm-only) {
+  .gotloop-header {
     height: 100%;
     width: 6em;
     left: 0;
@@ -28,19 +31,21 @@
 .header-logo {
   height: 2em;
   width: 4em;
-  margin-right: $common-margin;
-
+  margin-right: var(--common-margin);
   flex: 0 0 auto;
 }
-@include breakpoint('sm', 'md') {
+
+@media (--viewport-sm-only) {
   .header-logo-text {
     font-size: 1.5em;
     margin-bottom: 1em;
   }
+
   .header-logo {
     font-size: 1.5em;
   }
 }
+
 .header-links {
   flex: 0 0 auto;
   display: flex;
@@ -54,7 +59,10 @@
   right: 0;
   overflow: hidden;
   display: flex;
-  @include breakpoint('sm') {
+}
+
+@media (--viewport-sm) {
+  .header-links {
     background: transparent;
     position: relative;
     top: inherit;
@@ -62,37 +70,46 @@
     left: inherit;
     padding: 0;
   }
-  @include breakpoint('sm', 'md') {
+}
+
+@media (--viewport-sm-only) {
+  .header-links {
     flex-direction: column;
-    .header-link {
-      margin-right: 0;
-    }
+  }
+
+  .header-links .header-link {
+    margin-right: 0;
   }
 }
+
 .spacer {
   flex: 1 1 auto;
-  @include breakpoint('sm', 'md') {
+}
+
+@media (--viewport-sm-only) {
+  .spacer {
     flex: 0 0 auto;
   }
 }
-.header-link:not(:last-child) {
-  margin-right: $common-margin * 2;
-}
-.header-link {
-  color: $main-color;
 
+.header-link:not(:last-child) {
+  margin-right: calc(var(--common-margin) * 2);
+}
+
+.header-link {
+  color: var(--color-main);
   display: flex;
   flex-wrap: nowrap;
   text-decoration: none;
   text-transform: uppercase;
   transition: background-position 1s ease-in-out;
+}
 
-  &:visited {
-    color: $main-color;
-  }
+.header-link:visited {
+  color: var(--color-main);
+}
 
-  &:hover,
-  &:focus {
-    color: $main-color-light;
-  }
+.header-link:hover,
+.header-link:focus {
+  color: var(--color-main-light);
 }

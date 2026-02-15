@@ -1,4 +1,4 @@
-//base
+/* base */
 body,
 html {
   height: 100%;
@@ -6,6 +6,7 @@ html {
   margin: 0;
   padding: 0;
 }
+
 body {
   background: linear-gradient(
       0deg,
@@ -35,7 +36,7 @@ h6,
   margin: 0;
   line-height: 1em;
   font-weight: normal;
-  color: $main-color;
+  color: var(--color-main);
 }
 
 .title {
@@ -45,18 +46,18 @@ h6,
 .page-content {
   margin: 0 auto;
   width: 640px;
-  color: $head-color;
+  color: var(--color-header);
 }
 
 .page-footer {
   width: 100%;
   bottom: 0;
   text-align: center;
-  height: $header-height;
+  height: var(--header-height);
   background-image: linear-gradient(0deg, white, rgba(0, 0, 0, 0));
 }
 
-//view show hide system based on #hash
+/* view show hide system based on #hash */
 section:not(:target) {
   display: none;
 }
@@ -66,10 +67,10 @@ section:target {
 }
 
 section h2 {
-  padding-top: $header-height;
+  padding-top: var(--header-height);
 }
 
-//forms
+/* forms */
 fieldset {
   border: 0;
 }
@@ -83,14 +84,12 @@ button {
   border-radius: 2em;
   padding: 0 1em;
   background-color: transparent;
-  border: solid 1px $main-color;
-  color: $main-color;
+  border: solid 1px var(--color-main);
+  color: var(--color-main);
 }
 
-input {
-  &:focus {
-    box-shadow: inset 0 0 0.5em $main-color;
-  }
+input:focus {
+  box-shadow: inset 0 0 0.5em var(--color-main);
 }
 
 .loop-buttons {
@@ -98,22 +97,26 @@ input {
   display: flex;
   align-items: center;
   margin: -2em 1em 0;
+}
 
-  .loop-play-pause-button {
-    @include rounded-full(4em, $color-green);
-    //background-color:white;
-    text-align: center;
-    text-transform: uppercase;
-  }
-  .loop-like-button {
-    @include rounded-full(3em, $color-red-dark);
-    margin-left: 1em;
-    text-align: center;
-  }
-  .loop-comment-button {
-    @include rounded-full(2em, $color-blue-dark);
-    padding: 0 1em;
-    width: auto;
-    margin-left: auto;
-  }
+.loop-buttons .loop-play-pause-button {
+  --rounded-size: 4em;
+  --rounded-color: var(--color-green);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.loop-buttons .loop-like-button {
+  --rounded-size: 3em;
+  --rounded-color: var(--color-red-dark);
+  margin-left: 1em;
+  text-align: center;
+}
+
+.loop-buttons .loop-comment-button {
+  --rounded-size: 2em;
+  --rounded-color: var(--color-blue-dark);
+  padding: 0 1em;
+  width: auto;
+  margin-left: auto;
 }

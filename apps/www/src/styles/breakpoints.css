@@ -1,0 +1,23 @@
+/* Breakpoint definitions using CSS custom media queries
+ * Requires postcss-custom-media plugin
+ *
+ * Breakpoint sizes match the previous sass-breakpoints configuration:
+ * - xs: 0px (implicit, all screens)
+ * - sm: 568px (iPhones >= 6)
+ * - md: 768px (tablets portrait)
+ * - lg: 1004px (tablets landscape, desktops)
+ */
+
+/* Min-width breakpoints (mobile-first) */
+@custom-media --viewport-sm (min-width: 568px);
+@custom-media --viewport-md (min-width: 768px);
+@custom-media --viewport-lg (min-width: 1004px);
+
+/* Range breakpoints (specific ranges only) */
+@custom-media --viewport-sm-only (min-width: 568px) and (max-width: 767px);
+@custom-media --viewport-md-only (min-width: 768px) and (max-width: 1003px);
+
+/* Max-width breakpoints (desktop-first, if needed) */
+@custom-media --viewport-max-sm (max-width: 567px);
+@custom-media --viewport-max-md (max-width: 767px);
+@custom-media --viewport-max-lg (max-width: 1003px);

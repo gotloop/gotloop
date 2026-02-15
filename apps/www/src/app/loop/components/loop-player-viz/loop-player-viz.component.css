@@ -1,0 +1,10 @@
+.loop-player {
+  color: var(--color-main);
+}
+.loop-player.is-playing {
+  margin: -0.5em -1em 2em;
+  transition: margin 0.3s ease-in;
+}
+.loop-player .loop-viz {
+  height: 4em;
+}
