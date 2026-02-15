@@ -5,7 +5,7 @@ describe('RandomFactoryService', () => {
     TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } }),
   );
   it('should be created', () => {
-    const service: RandomFactoryService = TestBed.get(RandomFactoryService);
+    const service: RandomFactoryService = TestBed.inject(RandomFactoryService);
     expect(service).toBeTruthy();
   });
   const seeds: string[] = ['ABCD', 'YOLO', 'TEST'];

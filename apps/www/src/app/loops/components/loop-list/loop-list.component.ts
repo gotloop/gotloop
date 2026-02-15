@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { LoopsService } from '../../services/loops.service';
 import { LoopsLoaderComponent } from '../loops-loader/loops-loader.component';
 import { LoopPlayerComponent } from '../../../loop/components/loop-player/loop-player.component';
@@ -22,7 +22,7 @@ export class LoopListComponent implements OnInit {
 
   public isLoading = false;
 
-  constructor(private loopsService: LoopsService) {}
+  private loopsService = inject(LoopsService);
 
   ngOnInit() {
     this.loopsService.loops$.subscribe((loops: LoopModel[]) => {

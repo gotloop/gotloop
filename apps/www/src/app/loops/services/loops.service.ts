@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { RandomFactoryService } from '../../core/services/random-factory.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -12,7 +12,9 @@ export class LoopsService {
 
   private loops: LoopModel[] = [];
 
-  constructor(private rng: RandomFactoryService) {
+  private rng = inject(RandomFactoryService);
+
+  constructor() {
     for (let i = 0; i < 10; i++) {
       this.loops.push(this.rng.randomLoop());
     }

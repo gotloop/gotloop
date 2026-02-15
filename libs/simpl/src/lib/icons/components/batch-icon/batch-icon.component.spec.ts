@@ -5,7 +5,7 @@ describe('BatchIconComponent', () => {
   let fixture: ComponentFixture<BatchIconComponent>;
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [BatchIconComponent],
+      imports: [BatchIconComponent],
       teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
