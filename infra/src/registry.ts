@@ -1,13 +1,5 @@
-import * as gcp from "@pulumi/gcp";
-import * as pulumi from "@pulumi/pulumi";
 import { project, region } from "./config";
 
-export const registry = new gcp.artifactregistry.Repository("gotloop", {
-  repositoryId: "gotloop",
-  format: "DOCKER",
-  location: region,
-  project,
-  description: "GotLoop Docker images",
-});
-
-export const registryUrl = pulumi.interpolate`${region}-docker.pkg.dev/${project}/gotloop`;
+// Artifact Registry is created manually (not managed by Pulumi)
+// See docs/how-to/setup-cd.md for setup instructions
+export const registryUrl = `${region}-docker.pkg.dev/${project}/gotloop`;

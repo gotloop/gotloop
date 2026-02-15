@@ -5,7 +5,6 @@ import { apiUrl, wwwUrl, admUrl } from "./src/cloud-run";
 
 // Always provision: networking, registry, database, secrets, Cloud Run services
 import "./src/networking";
-import "./src/registry";
 import "./src/database";
 import "./src/secrets";
 import "./src/cloud-run";

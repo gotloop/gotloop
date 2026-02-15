@@ -54,15 +54,19 @@ export const apiService = new gcp.cloudrunv2.Service(`${resourcePrefix}api${serv
               },
             },
           },
-          {
-            name: "GOOGLE_API_KEY",
-            valueSource: {
-              secretKeyRef: {
-                secret: googleApiKeySecret.secretId,
-                version: "latest",
-              },
-            },
-          },
+          ...(googleApiKeySecret
+            ? [
+                {
+                  name: "GOOGLE_API_KEY",
+                  valueSource: {
+                    secretKeyRef: {
+                      secret: googleApiKeySecret.secretId,
+                      version: "latest",
+                    },
+                  },
+                },
+              ]
+            : []),
         ],
         resources: {
           limits: {
