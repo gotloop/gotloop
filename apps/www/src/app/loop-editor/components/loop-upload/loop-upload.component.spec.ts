@@ -1,14 +1,14 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoopUploadComponent } from './loop-upload.component';
 describe('LoopUploadComponent', () => {
   let component: LoopUploadComponent;
   let fixture: ComponentFixture<LoopUploadComponent>;
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [LoopUploadComponent],
       teardown: { destroyAfterEach: false },
     }).compileComponents();
-  }));
+  });
   beforeEach(() => {
     fixture = TestBed.createComponent(LoopUploadComponent);
     component = fixture.componentInstance;

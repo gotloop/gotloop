@@ -1,14 +1,14 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoopDetailComponent } from './loop-detail.component';
 describe('LoopDetailComponent', () => {
   let component: LoopDetailComponent;
   let fixture: ComponentFixture<LoopDetailComponent>;
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [LoopDetailComponent],
       teardown: { destroyAfterEach: false },
     }).compileComponents();
-  }));
+  });
   beforeEach(() => {
     fixture = TestBed.createComponent(LoopDetailComponent);
     component = fixture.componentInstance;

@@ -1,9 +1,6 @@
 import {
   ComponentFixture,
   TestBed,
-  fakeAsync,
-  tick,
-  waitForAsync,
 } from '@angular/core/testing';
 import { CardComponent } from './card.component';
 import { Component, DebugElement } from '@angular/core';
@@ -29,22 +26,22 @@ import { CardContentComponent } from './card-content.component';
 })
 class CardTestComponent {}
 describe('CardComponent', () => {
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [CardComponent],
       teardown: { destroyAfterEach: false },
     }).compileComponents();
-  }));
+  });
   describe('Usage with templates', () => {
     let component: CardTestComponent;
     let fixture: ComponentFixture<CardTestComponent>;
     let debugElement: DebugElement;
-    beforeEach(waitForAsync(() => {
+    beforeEach(async () => {
       fixture = TestBed.createComponent(CardTestComponent);
       component = fixture.componentInstance;
       debugElement = fixture.debugElement;
       fixture.detectChanges();
-    }));
+    });
     it('should create', () => {
       expect(component).toBeTruthy();
     });
@@ -53,12 +50,11 @@ describe('CardComponent', () => {
       expect(element).toBeTruthy();
       expect(element.nativeElement.textContent).toContain('Header');
     });
-    it('should have a main with "Content" text content', fakeAsync(() => {
-      tick();
+    it('should have a main with "Content" text content', () => {
       const element = debugElement.query(By.css('.card-middle'));
       expect(element).toBeTruthy();
       expect(element.nativeElement.textContent).toContain('Content');
-    }));
+    });
     it('should have a footer with "Footer" text content', () => {
       const element = debugElement.query(By.css('footer.card-footer'));
       expect(element).toBeTruthy();

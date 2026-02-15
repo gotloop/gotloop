@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommentModel } from '@gotloop/api-model';
 import { LoopCommentComponent } from './loop-comment.component';
 import { nanoid } from 'nanoid';
@@ -14,12 +14,12 @@ describe('LoopCommentComponent', () => {
     content: 'tralala pouet pouet',
     createdAt: new Date(Date.now()),
   };
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [LoopCommentComponent],
       teardown: { destroyAfterEach: false },
     }).compileComponents();
-  }));
+  });
   beforeEach(() => {
     fixture = TestBed.createComponent(LoopCommentComponent);
     component = fixture.componentInstance;
