@@ -1,0 +1,8 @@
+config:
+  gcp:project: gotloop
+  gcp:region: europe-west9
+  gotloop:environment: staging
+  gotloop:domain: gotloop.io
+  gotloop:cloudSqlTier: db-f1-micro
+  gotloop:minInstances: "0"
+  gotloop:maxInstances: "2"

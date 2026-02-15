@@ -1,3 +1,5 @@
+packages:
+  - 'infra'
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@swc/core'
