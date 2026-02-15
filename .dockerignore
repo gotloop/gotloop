@@ -1,12 +1,11 @@
 node_modules
 .git
 .gitignore
-*.md
 dist
+docs
 
-# Ignore all files in the root to avoid rebuilding the image if not needed
 docker-compose.yml
 Dockerfile
-jest.preset.js
-jest.config.ts
-tsconfig.base.json
+.dockerignore
+.env
+.env.*

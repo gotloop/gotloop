@@ -29,11 +29,13 @@ services:
 
   # internal node services
 
-  # REST api (nest.js + typeorm)
+  # REST api (fastify)
   api:
     build:
       context: .
       target: api
+      args:
+        NODE_VERSION: ${NODE_VERSION}
     restart: always
     environment:
       VIRTUAL_HOST: api.gotloop
@@ -43,11 +45,13 @@ services:
       - dat
       - bin
 
-  # Main server. (web/universal + angular)
+  # Main server (angular SSR + fastify)
   www:
     build:
       context: .
       target: www
+      args:
+        NODE_VERSION: ${NODE_VERSION}
     restart: always
     ports:
       - 6070:4200
@@ -95,12 +99,16 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
   adm:
-    image: adminer
+    build:
+      context: .
+      target: adm
+      args:
+        NODE_VERSION: ${NODE_VERSION}
     restart: always
     ports:
-      - 8080:8080
     environment:
       VIRTUAL_HOST: adm.gotloop
+      - 8080:80
 
 volumes:
   data:
