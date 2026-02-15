@@ -40,7 +40,8 @@ const server = app();
 
 if (isMainModule(import.meta.url)) {
   const port = +(process.env['PORT'] || 4000);
-  server.listen({ port }, () => {
+  const host = process.env['HOST'] || '0.0.0.0';
+  server.listen({ port, host }, () => {
     console.log(`Fastify server listening on http://localhost:${port}`);
   });
 }
