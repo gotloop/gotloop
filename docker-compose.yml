@@ -3,29 +3,30 @@ services:
 
   # Database for objects data.
   dat:
-    image: mongo
+    image: postgres:17
     restart: always
     environment:
-      VIRTUAL_HOST: dat.gotloop
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - 3306:3306
+      - 5432:5432
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - data:/var/lib/postgresql/data
 
   # Cloud storage (like S3) for sound/binary data.
   bin:
     image: minio/minio
     restart: always
-    command: server /export
+    command: server /export --console-address ":9001"
     environment:
-      VIRTUAL_HOST: bin.gotloop
-      MINIO_ACCESS_KEY: $(MINIO_ACCESS_KEY)
-      MINIO_SECRET_KEY: $(MINIO_SECRET_KEY)
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
     ports:
-      - '9001:9000'
+      - '9000:9000'
+      - '9001:9001'
     volumes:
       - binary:/export
-      - ./data/minio/config:/root/.minio
 
   # internal node services
 
@@ -38,7 +39,8 @@ services:
         NODE_VERSION: ${NODE_VERSION}
     restart: always
     environment:
-      VIRTUAL_HOST: api.gotloop
+      HOST: 0.0.0.0
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@dat:5432/${POSTGRES_DB}
     ports:
       - 6060:3000
     depends_on:
@@ -54,50 +56,11 @@ services:
         NODE_VERSION: ${NODE_VERSION}
     restart: always
     ports:
-      - 6070:4200
-    environment:
-      VIRTUAL_HOST: www.gotloop
-    entrypoint: ng serve --hmr
-    working_dir: /usr/src/app
-    volumes:
-      - .:/usr/src/app
+      - 6070:4000
     depends_on:
       - api
 
-  # run end-to-end tests on demand and display html reports:
-  e2e:
-    build: .
-    restart: always
-    ports:
-      - 6080:8081
-    entrypoint: npm run start
-    environment:
-      VIRTUAL_HOST: e2e.gotloop
-    volumes:
-      - ./packages/e2e:/usr/src/app
-    working_dir: /usr/src/app
-    depends_on:
-      - www
-
-  # run performance tests on demand and display html reports:
-  prf:
-    build: .
-    ports:
-      - 6090:3000
-    environment:
-      VIRTUAL_HOST: prf.gotloop
-    working_dir: /usr/src/app
-    volumes:
-      - ./packages/prf:/usr/src/app
-
-  # nginx reverse proxy to bind them all
-  ngx:
-    image: jwilder/nginx-proxy
-    ports:
-      - '90:80'
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-
+  # Database admin UI
   adm:
     build:
       context: .
@@ -106,8 +69,6 @@ services:
         NODE_VERSION: ${NODE_VERSION}
     restart: always
     ports:
-    environment:
-      VIRTUAL_HOST: adm.gotloop
       - 8080:80
 
 volumes:
