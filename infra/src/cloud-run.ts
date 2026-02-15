@@ -56,6 +56,7 @@ export const apiService = new gcp.cloudrunv2.Service(
           image: pulumi.interpolate`${registryUrl}/api:${imageTag}`,
           ports: { containerPort: 3000 },
           envs: [
+            { name: "HOST", value: "0.0.0.0" },
             {
               name: "DATABASE_URL",
               valueSource: {
@@ -120,13 +121,7 @@ export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www${serv
       {
         image: pulumi.interpolate`${registryUrl}/www:${imageTag}`,
         ports: { containerPort: 4000 },
-        startupProbe: {
-          tcpSocket: { port: 4000 },
-          initialDelaySeconds: 5,
-          timeoutSeconds: 3,
-          periodSeconds: 5,
-          failureThreshold: 12,
-        },
+        envs: [{ name: "HOST", value: "0.0.0.0" }],
         resources: {
           limits: {
             cpu: "1",
