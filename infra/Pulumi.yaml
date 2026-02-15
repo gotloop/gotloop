@@ -1,0 +1,6 @@
+name: gotloop
+runtime:
+  name: nodejs
+  options:
+    packagemanager: pnpm
+description: GotLoop infrastructure on GCP Cloud Run
