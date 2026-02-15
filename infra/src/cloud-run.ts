@@ -120,7 +120,13 @@ export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www${serv
       {
         image: pulumi.interpolate`${registryUrl}/www:${imageTag}`,
         ports: { containerPort: 4000 },
-        envs: [{ name: "PORT", value: "4000" }],
+        startupProbe: {
+          tcpSocket: { port: 4000 },
+          initialDelaySeconds: 5,
+          timeoutSeconds: 3,
+          periodSeconds: 5,
+          failureThreshold: 12,
+        },
         resources: {
           limits: {
             cpu: "1",
