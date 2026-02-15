@@ -1,0 +1,115 @@
+name: Deploy Production
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  NODE_VERSION: 24
+  PNPM_VERSION: 10
+  GCP_REGION: europe-west9
+  GCP_PROJECT: gotloop
+  REGISTRY: europe-west9-docker.pkg.dev/gotloop/gotloop
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ env.GCP_REGION }}-docker.pkg.dev --quiet
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install infra dependencies
+        run: cd infra && pnpm install --frozen-lockfile
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Set image tag
+        id: tag
+        run: |
+          SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Build and push API image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: api
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/api:${{ steps.tag.outputs.sha }}
+            ${{ env.REGISTRY }}/api:latest
+          build-args: NODE_VERSION=${{ env.NODE_VERSION }}
+          cache-from: type=gha,scope=api
+          cache-to: type=gha,mode=max,scope=api
+
+      - name: Build and push WWW image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: www
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/www:${{ steps.tag.outputs.sha }}
+            ${{ env.REGISTRY }}/www:latest
+          build-args: NODE_VERSION=${{ env.NODE_VERSION }}
+          cache-from: type=gha,scope=www
+          cache-to: type=gha,mode=max,scope=www
+
+      - name: Build and push ADM image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: adm
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/adm:${{ steps.tag.outputs.sha }}
+            ${{ env.REGISTRY }}/adm:latest
+          build-args: NODE_VERSION=${{ env.NODE_VERSION }}
+          cache-from: type=gha,scope=adm
+          cache-to: type=gha,mode=max,scope=adm
+
+      - name: Deploy production with Pulumi
+        uses: pulumi/actions@v6
+        with:
+          command: up
+          stack-name: gotloop/production
+          work-dir: infra
+          config-map: |
+            {
+              "gotloop:imageTag": { "value": "${{ steps.tag.outputs.sha }}" }
+            }
+        env:
+          PULUMI_BACKEND_URL: ${{ secrets.PULUMI_BACKEND_URL }}
