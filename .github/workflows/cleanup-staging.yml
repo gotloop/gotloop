@@ -36,10 +36,17 @@ jobs:
           workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Install infra dependencies
         run: cd infra && pnpm install --frozen-lockfile
 
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
       - name: Destroy staging stack
+        continue-on-error: true
         uses: pulumi/actions@v6
         with:
           command: destroy

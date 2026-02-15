@@ -106,6 +106,7 @@ jobs:
         with:
           command: up
           stack-name: gotloop/production
+          upsert: true
           work-dir: infra
           config-map: |
             {
