@@ -1,14 +1,14 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ContentPageComponent } from './content-page.component';
 describe('ContentPageComponent', () => {
   let component: ContentPageComponent;
   let fixture: ComponentFixture<ContentPageComponent>;
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ContentPageComponent],
       teardown: { destroyAfterEach: false },
     }).compileComponents();
-  }));
+  });
   beforeEach(() => {
     fixture = TestBed.createComponent(ContentPageComponent);
     component = fixture.componentInstance;

@@ -1,16 +1,16 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoopModel, loopFactory } from '@gotloop/api-model';
 import { LoopPlayerComponent } from './loop-player.component';
 describe('LoopPlayerComponent', () => {
   let component: LoopPlayerComponent;
   let fixture: ComponentFixture<LoopPlayerComponent>;
   const loopInput: LoopModel = loopFactory();
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [LoopPlayerComponent],
       teardown: { destroyAfterEach: false },
     }).compileComponents();
-  }));
+  });
   beforeEach(() => {
     fixture = TestBed.createComponent(LoopPlayerComponent);
     component = fixture.componentInstance;

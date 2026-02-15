@@ -1,15 +1,15 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderSearchComponent } from './header-search.component';
 import { FormsModule } from '@angular/forms';
 describe('HeaderSearchComponent', () => {
   let component: HeaderSearchComponent;
   let fixture: ComponentFixture<HeaderSearchComponent>;
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [FormsModule, HeaderSearchComponent],
       teardown: { destroyAfterEach: false },
     }).compileComponents();
-  }));
+  });
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderSearchComponent);
     component = fixture.componentInstance;

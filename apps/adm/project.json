@@ -14,7 +14,6 @@
         "outputPath": "dist/apps/adm",
         "index": "apps/adm/src/index.html",
         "browser": "apps/adm/src/main.ts",
-        "polyfills": ["zone.js"],
         "tsConfig": "apps/adm/tsconfig.app.json",
         "inlineStyleLanguage": "css",
         "assets": ["apps/adm/src/favicon.ico", "apps/adm/src/assets"],
