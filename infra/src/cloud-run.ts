@@ -8,7 +8,6 @@ import {
   minInstances,
   maxInstances,
   isProduction,
-  sha7,
 } from "./config";
 import { registryUrl } from "./registry";
 import { vpcConnector } from "./networking";
@@ -27,19 +26,20 @@ const cloudRunSa = new gcp.serviceaccount.Account(`${resourcePrefix}cloud-run-sa
   project,
 });
 
-/** Service name suffix for staging per-PR deploys */
-const serviceSuffix = sha7 ? `-${sha7}` : "";
+// No suffix needed: each PR gets its own Pulumi stack, so service names
+// are already unique via the resourcePrefix (e.g. "staging-api", "staging-www").
 
 // --- API Service ---
 const apiDependencies: pulumi.Resource[] = [databaseUrlSecretVersion];
 if (googleApiKeySecretVersion) apiDependencies.push(googleApiKeySecretVersion);
 
 export const apiService = new gcp.cloudrunv2.Service(
-  `${resourcePrefix}api${serviceSuffix}`,
+  `${resourcePrefix}api`,
   {
-    name: `${resourcePrefix}api${serviceSuffix}`,
+    name: `${resourcePrefix}api`,
     location: region,
     project,
+    deletionProtection: false,
     ingress: isProduction ? "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" : "INGRESS_TRAFFIC_ALL",
     template: {
       serviceAccount: cloudRunSa.email,
@@ -106,10 +106,11 @@ const apiInvoker = new gcp.cloudrunv2.ServiceIamMember(`${resourcePrefix}api-inv
 });
 
 // --- WWW Service ---
-export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www${serviceSuffix}`, {
-  name: `${resourcePrefix}www${serviceSuffix}`,
+export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www`, {
+  name: `${resourcePrefix}www`,
   location: region,
   project,
+  deletionProtection: false,
   ingress: isProduction ? "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" : "INGRESS_TRAFFIC_ALL",
   template: {
     serviceAccount: cloudRunSa.email,
@@ -147,6 +148,7 @@ export const admService = isProduction
       name: "adm",
       location: region,
       project,
+      deletionProtection: false,
       ingress: "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER",
       template: {
         scaling: {
