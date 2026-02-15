@@ -12,7 +12,13 @@ import {
 } from "./config";
 import { registryUrl } from "./registry";
 import { vpcConnector } from "./networking";
-import { databaseUrlSecret, googleApiKeySecret, grantSecretAccess } from "./secrets";
+import {
+  databaseUrlSecret,
+  databaseUrlSecretVersion,
+  googleApiKeySecret,
+  googleApiKeySecretVersion,
+  grantSecretAccess,
+} from "./secrets";
 
 /** Dedicated service account for Cloud Run services */
 const cloudRunSa = new gcp.serviceaccount.Account(`${resourcePrefix}cloud-run-sa`, {
@@ -25,59 +31,66 @@ const cloudRunSa = new gcp.serviceaccount.Account(`${resourcePrefix}cloud-run-sa
 const serviceSuffix = sha7 ? `-${sha7}` : "";
 
 // --- API Service ---
-export const apiService = new gcp.cloudrunv2.Service(`${resourcePrefix}api${serviceSuffix}`, {
-  name: `${resourcePrefix}api${serviceSuffix}`,
-  location: region,
-  project,
-  ingress: isProduction ? "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" : "INGRESS_TRAFFIC_ALL",
-  template: {
-    serviceAccount: cloudRunSa.email,
-    scaling: {
-      minInstanceCount: minInstances,
-      maxInstanceCount: maxInstances,
-    },
-    vpcAccess: {
-      connector: vpcConnector.id,
-      egress: "PRIVATE_RANGES_ONLY",
-    },
-    containers: [
-      {
-        image: pulumi.interpolate`${registryUrl}/api:${imageTag}`,
-        ports: { containerPort: 3000 },
-        envs: [
-          {
-            name: "DATABASE_URL",
-            valueSource: {
-              secretKeyRef: {
-                secret: databaseUrlSecret.secretId,
-                version: "latest",
+const apiDependencies: pulumi.Resource[] = [databaseUrlSecretVersion];
+if (googleApiKeySecretVersion) apiDependencies.push(googleApiKeySecretVersion);
+
+export const apiService = new gcp.cloudrunv2.Service(
+  `${resourcePrefix}api${serviceSuffix}`,
+  {
+    name: `${resourcePrefix}api${serviceSuffix}`,
+    location: region,
+    project,
+    ingress: isProduction ? "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" : "INGRESS_TRAFFIC_ALL",
+    template: {
+      serviceAccount: cloudRunSa.email,
+      scaling: {
+        minInstanceCount: minInstances,
+        maxInstanceCount: maxInstances,
+      },
+      vpcAccess: {
+        connector: vpcConnector.id,
+        egress: "PRIVATE_RANGES_ONLY",
+      },
+      containers: [
+        {
+          image: pulumi.interpolate`${registryUrl}/api:${imageTag}`,
+          ports: { containerPort: 3000 },
+          envs: [
+            {
+              name: "DATABASE_URL",
+              valueSource: {
+                secretKeyRef: {
+                  secret: databaseUrlSecret.secretId,
+                  version: "latest",
+                },
               },
             },
-          },
-          ...(googleApiKeySecret
-            ? [
-                {
-                  name: "GOOGLE_API_KEY",
-                  valueSource: {
-                    secretKeyRef: {
-                      secret: googleApiKeySecret.secretId,
-                      version: "latest",
+            ...(googleApiKeySecret
+              ? [
+                  {
+                    name: "GOOGLE_API_KEY",
+                    valueSource: {
+                      secretKeyRef: {
+                        secret: googleApiKeySecret.secretId,
+                        version: "latest",
+                      },
                     },
                   },
-                },
-              ]
-            : []),
-        ],
-        resources: {
-          limits: {
-            cpu: "1",
-            memory: "512Mi",
+                ]
+              : []),
+          ],
+          resources: {
+            limits: {
+              cpu: "1",
+              memory: "512Mi",
+            },
           },
         },
-      },
-    ],
+      ],
+    },
   },
-});
+  { dependsOn: apiDependencies }
+);
 
 // Grant secret access to the Cloud Run service account
 grantSecretAccess(`${resourcePrefix}cloud-run`, cloudRunSa.email);
@@ -107,6 +120,7 @@ export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www${serv
       {
         image: pulumi.interpolate`${registryUrl}/www:${imageTag}`,
         ports: { containerPort: 4000 },
+        envs: [],
         resources: {
           limits: {
             cpu: "1",
