@@ -15,7 +15,8 @@
       "executor": "@nx/jest:jest",
       "options": {
         "jestConfig": "libs/simpl/jest.config.ts",
-        "passWithNoTests": false
+        "passWithNoTests": false,
+        "tsConfig": "libs/simpl/tsconfig.spec.json"
       },
       "outputs": ["{workspaceRoot}/coverage/libs/simpl"]
     }

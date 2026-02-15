@@ -1,6 +1,6 @@
 <div class="loop-comments">
   <button>show all</button>
-  <ng-container *ngFor="let comment of comments">
+  @for (comment of comments; track comment) {
     <glp-loop-comment [comment]="comment"></glp-loop-comment>
-  </ng-container>
+  }
 </div>

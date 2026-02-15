@@ -1,5 +1,4 @@
 import { BoxUI } from './box.model';
-
 describe('Box', () => {
   test('constructor', () => {
     const box: BoxUI = {

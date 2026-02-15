@@ -5,15 +5,12 @@ import {
   tick,
   waitForAsync,
 } from '@angular/core/testing';
-
 import { CardComponent } from './card.component';
 import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-
 import { CardHeaderComponent } from './card-header.component';
 import { CardFooterComponent } from './card-footer.component';
 import { CardContentComponent } from './card-content.component';
-
 @Component({
   template: `
     <glp-card>
@@ -38,7 +35,6 @@ describe('CardComponent', () => {
       teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));
-
   describe('Usage with templates', () => {
     let component: CardTestComponent;
     let fixture: ComponentFixture<CardTestComponent>;
@@ -49,11 +45,9 @@ describe('CardComponent', () => {
       debugElement = fixture.debugElement;
       fixture.detectChanges();
     }));
-
     it('should create', () => {
       expect(component).toBeTruthy();
     });
-
     it('should have an header with "Header" text content', () => {
       const element = debugElement.query(By.css('header.card-header'));
       expect(element).toBeTruthy();
@@ -74,13 +68,11 @@ describe('CardComponent', () => {
   describe('Basic usage', () => {
     let component: CardComponent;
     let fixture: ComponentFixture<CardComponent>;
-
     beforeEach(() => {
       fixture = TestBed.createComponent(CardComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
     });
-
     it('should create', () => {
       expect(component).toBeTruthy();
     });

@@ -28,7 +28,7 @@ export const routes: Routes = [
   },
   {
     path: 'loop/:id',
-    loadChildren: () =>
+    loadComponent: () =>
       import('./loop-detail/components/loop-detail/loop-detail.component').then(
         (m) => m.LoopDetailComponent,
       ),

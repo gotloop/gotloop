@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoopsService } from '../../services/loops.service';
 import { LoopsLoaderComponent } from '../loops-loader/loops-loader.component';
 import { LoopPlayerComponent } from '../../../loop/components/loop-player/loop-player.component';
-import { NgFor, NgIf } from '@angular/common';
+
 import { ContentPageComponent } from '../../../shell/components/content-page/content-page.component';
 import { LoopModel } from '@gotloop/api-model';
 
@@ -13,11 +13,9 @@ import { LoopModel } from '@gotloop/api-model';
   standalone: true,
   imports: [
     ContentPageComponent,
-    NgFor,
     LoopPlayerComponent,
-    NgIf,
-    LoopsLoaderComponent,
-  ],
+    LoopsLoaderComponent
+],
 })
 export class LoopListComponent implements OnInit {
   public loops?: LoopModel[];

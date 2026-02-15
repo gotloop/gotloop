@@ -4,3 +4,5 @@ node_modules/*
 
 /.nx/cache
 .angular/cache
+
+/.nx/workspace-data
