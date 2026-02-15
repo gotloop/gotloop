@@ -70,7 +70,7 @@ export const apiService = new gcp.cloudrunv2.Service(`${resourcePrefix}api${serv
         ],
         resources: {
           limits: {
-            cpu: isProduction ? "1" : "0.5",
+            cpu: "1",
             memory: isProduction ? "512Mi" : "256Mi",
           },
         },
@@ -109,7 +109,7 @@ export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www${serv
         ports: { containerPort: 4000 },
         resources: {
           limits: {
-            cpu: isProduction ? "1" : "0.5",
+            cpu: "1",
             memory: isProduction ? "512Mi" : "256Mi",
           },
         },
