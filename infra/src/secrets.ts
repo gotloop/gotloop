@@ -23,23 +23,27 @@ export const databaseUrlSecretVersion = new gcp.secretmanager.SecretVersion(
   }
 );
 
-// Secret: GOOGLE_API_KEY
-export const googleApiKeySecret = new gcp.secretmanager.Secret(
-  `${resourcePrefix}google-api-key`,
-  {
-    secretId: `${resourcePrefix}google-api-key`,
-    replication: { auto: {} },
-    project,
-  }
-);
+// Secret: GOOGLE_API_KEY (optional — only created if set in config)
+const googleApiKey = config.getSecret("googleApiKey");
 
-export const googleApiKeySecretVersion = new gcp.secretmanager.SecretVersion(
-  `${resourcePrefix}google-api-key-version`,
-  {
-    secret: googleApiKeySecret.id,
-    secretData: config.requireSecret("googleApiKey"),
-  }
-);
+export const googleApiKeySecret = googleApiKey
+  ? new gcp.secretmanager.Secret(`${resourcePrefix}google-api-key`, {
+      secretId: `${resourcePrefix}google-api-key`,
+      replication: { auto: {} },
+      project,
+    })
+  : undefined;
+
+export const googleApiKeySecretVersion =
+  googleApiKeySecret && googleApiKey
+    ? new gcp.secretmanager.SecretVersion(
+        `${resourcePrefix}google-api-key-version`,
+        {
+          secret: googleApiKeySecret.id,
+          secretData: googleApiKey,
+        }
+      )
+    : undefined;
 
 /**
  * Grant a Cloud Run service account access to the secrets.
@@ -55,10 +59,12 @@ export function grantSecretAccess(
     project,
   });
 
-  new gcp.secretmanager.SecretIamMember(`${name}-google-api-key-access`, {
-    secretId: googleApiKeySecret.id,
-    role: "roles/secretmanager.secretAccessor",
-    member: pulumi.interpolate`serviceAccount:${serviceAccountEmail}`,
-    project,
-  });
+  if (googleApiKeySecret) {
+    new gcp.secretmanager.SecretIamMember(`${name}-google-api-key-access`, {
+      secretId: googleApiKeySecret.id,
+      role: "roles/secretmanager.secretAccessor",
+      member: pulumi.interpolate`serviceAccount:${serviceAccountEmail}`,
+      project,
+    });
+  }
 }
