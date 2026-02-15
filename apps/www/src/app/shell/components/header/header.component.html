@@ -4,26 +4,28 @@
       style="fill: #3384b8"
       transform="translate(0,-752.36222)"
       d="m 230.77001,905.49323 95.54747,53.72892 c 0,0 -234.287963,216.68485 -304.089024,-43.9643 -76.752649,-286.60764 205.861194,-72.2784 299.534394,-9.43997 86.19801,57.82392 239.40126,172.74662 236.28284,1.2184 -3.11843,-171.52815 -197.50216,7.36452 -197.50216,7.36452 l -73.17235,-53.17991 c 0,0 343.4182,-243.9894 296.13317,44.40499 C 547.28006,1126.5602 414.21609,990.12354 302.0655,924.79464 189.91491,859.46575 -23.631822,729.96692 53.459093,902.79637 c 46.938467,105.23103 177.310917,2.69686 177.310917,2.69686 z"
-    ></svg:path>
-  </svg:svg>
-  <h1 class="header-logo-text">Gotloop</h1>
-  <glp-header-search *ngIf="false"></glp-header-search>
-  <div class="spacer"></div>
-  <nav class="header-links">
-    <a [routerLink]="'/loops'" class="header-link">
-      <glp-icon icon="f072"></glp-icon>
-      Loops
-    </a>
-    <a [routerLink]="'/noizr'" class="header-link">
-      <glp-icon icon="f083"></glp-icon>
-      Noizr
-    </a>
-    <a routerLink="/loop" class="header-link">
-      <glp-icon icon="f073"></glp-icon>
-      <span>Record</span>
-    </a>
-    <a routerLink="/loop/{}/upload" class="header-link">
-      <glp-icon icon="f0be"></glp-icon>Upload
-    </a>
-  </nav>
-</header>
+      ></svg:path>
+      </svg:svg>
+      <h1 class="header-logo-text">Gotloop</h1>
+      @if (false) {
+        <glp-header-search></glp-header-search>
+      }
+      <div class="spacer"></div>
+      <nav class="header-links">
+        <a [routerLink]="'/loops'" class="header-link">
+          <glp-icon icon="f072"></glp-icon>
+          Loops
+        </a>
+        <a [routerLink]="'/noizr'" class="header-link">
+          <glp-icon icon="f083"></glp-icon>
+          Noizr
+        </a>
+        <a routerLink="/loop" class="header-link">
+          <glp-icon icon="f073"></glp-icon>
+          <span>Record</span>
+        </a>
+        <a routerLink="/loop/{}/upload" class="header-link">
+          <glp-icon icon="f0be"></glp-icon>Upload
+        </a>
+      </nav>
+    </header>

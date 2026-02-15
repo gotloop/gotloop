@@ -18,8 +18,8 @@ COPY --from=build /app/dist/apps/api /app/dist/apps/api
 EXPOSE 3000
 CMD [ "node", "dist/apps/api/main.js" ]
 
-FROM base as web
+FROM base as www
 COPY --from=prod-deps /app/node_modules /app/node_modules
-COPY --from=build /app/dist /app/dist
+COPY --from=build /app/dist/apps/www /app/dist/apps/wwww
 EXPOSE 4200
 CMD [ "node", "dist/apps/www/main.js" ]

@@ -1,5 +1,9 @@
 <glp-content-page>
   <h2 class="title">Loops</h2>
-  <glp-loop-player *ngFor="let loop of loops" [loop]="loop"></glp-loop-player>
-  <glp-loops-loader *ngIf="isLoading"></glp-loops-loader>
+  @for (loop of loops; track loop) {
+    <glp-loop-player [loop]="loop"></glp-loop-player>
+  }
+  @if (isLoading) {
+    <glp-loops-loader></glp-loops-loader>
+  }
 </glp-content-page>
