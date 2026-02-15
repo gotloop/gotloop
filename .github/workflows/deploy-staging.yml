@@ -121,7 +121,7 @@ jobs:
         uses: pulumi/actions@v6
         with:
           command: up
-          stack-name: gotloop/staging-pr-${{ github.event.pull_request.number }}
+          stack-name: staging-pr-${{ github.event.pull_request.number }}
           upsert: true
           work-dir: infra
           config-map: |
@@ -155,7 +155,7 @@ jobs:
 
             > Commit: \`${{ github.event.pull_request.head.sha }}\`
             > Image tag: \`${tag}\`
-            > Stack: \`gotloop/staging-pr-${prNumber}\``;
+            > Stack: \`staging-pr-${prNumber}\``;
 
             // Find existing comment
             const { data: comments } = await github.rest.issues.listComments({
