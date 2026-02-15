@@ -58,6 +58,14 @@
       "options": {
         "jestConfig": "apps/api/jest.config.ts"
       }
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build --target api --build-arg NODE_VERSION=${NODE_VERSION:-24} -t ${DOCKER_TAG:-gotloop-api:latest} .",
+        "cwd": "."
+      },
+      "dependsOn": ["build"]
     }
   }
 }
