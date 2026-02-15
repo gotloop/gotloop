@@ -4,7 +4,7 @@ import { ContentPageComponent } from '../../../shell/components/content-page/con
 @Component({
   selector: 'glp-error-page',
   templateUrl: './error-page.component.html',
-  styleUrls: ['./error-page.component.scss'],
+  styleUrls: ['./error-page.component.css'],
   standalone: true,
   imports: [ContentPageComponent],
 })

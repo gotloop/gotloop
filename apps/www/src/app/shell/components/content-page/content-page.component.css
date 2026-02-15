@@ -1,0 +1,19 @@
+@import '../../../../styles/breakpoints.css';
+
+.content-page {
+  margin: 0 auto;
+  color: var(--color-header);
+  padding-bottom: 4em;
+}
+
+@media (--viewport-md) {
+  .content-page {
+    width: 640px;
+  }
+}
+
+@media (--viewport-lg) {
+  .content-page {
+    width: 768px;
+  }
+}

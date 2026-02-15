@@ -9,7 +9,7 @@ import { LoopModel } from '@gotloop/api-model';
 @Component({
   selector: 'glp-loop-list',
   templateUrl: './loop-list.component.html',
-  styleUrls: ['./loop-list.component.scss'],
+  styleUrls: ['./loop-list.component.css'],
   standalone: true,
   imports: [
     ContentPageComponent,

@@ -7,7 +7,7 @@ import { IconComponent } from '../../../shell/components/icon/icon.component';
 @Component({
   selector: 'glp-icons-page',
   templateUrl: './icons-page.component.html',
-  styleUrls: ['./icons-page.component.scss'],
+  styleUrls: ['./icons-page.component.css'],
   standalone: true,
   imports: [IconComponent],
 })

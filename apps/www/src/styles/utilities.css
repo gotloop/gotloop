@@ -1,0 +1,32 @@
+/* Utility classes for rounded buttons and elements */
+
+/* Usage:
+ * Set CSS variables on the element:
+ *   --rounded-size: 4em;
+ *   --rounded-color: var(--color-green);
+ * Then add class: u-rounded or u-rounded-full
+ */
+
+.u-rounded {
+  width: var(--rounded-size);
+  height: var(--rounded-size);
+  line-height: var(--rounded-size);
+  border-radius: calc(var(--rounded-size) * 0.5);
+  padding: 0;
+  text-align: center;
+  background-color: transparent;
+  color: var(--rounded-color);
+  box-shadow: 0 0.25em 0.5em color-mix(in srgb, var(--rounded-color) 50%, transparent);
+}
+
+.u-rounded-full {
+  width: var(--rounded-size);
+  height: var(--rounded-size);
+  line-height: var(--rounded-size);
+  border-radius: calc(var(--rounded-size) * 0.5);
+  transform-origin: calc(var(--rounded-size) * 0.5) calc(var(--rounded-size) * 0.5);
+  padding: 0;
+  background-color: var(--rounded-color);
+  color: white;
+  box-shadow: 0 0.25em 0.5em color-mix(in srgb, var(--rounded-color) 50%, transparent);
+}

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'glp-header-search',
   templateUrl: './header-search.component.html',
-  styleUrls: ['./header-search.component.scss'],
+  styleUrls: ['./header-search.component.css'],
   standalone: true,
   imports: [FormsModule],
 })

@@ -1,10 +1,9 @@
-@import '_settings';
-@import 'sass-breakpoints/index';
+@import '../../../../styles/breakpoints.css';
 
 .gotloop-footer {
   width: 100%;
   text-align: center;
-  height: $header-height * 0.5;
+  height: calc(var(--header-height) * 0.5);
   position: fixed;
   padding: 0 20px;
   bottom: 0;
@@ -13,11 +12,11 @@
   overflow: hidden;
   display: flex;
   background: white;
-  color: $main-color;
+  color: var(--color-main);
+}
 
-  @include breakpoint('md', 'lg') {
+@media (--viewport-md-only) {
+  .gotloop-footer {
     position: fixed;
-  }
-  @include breakpoint('lg') {
   }
 }

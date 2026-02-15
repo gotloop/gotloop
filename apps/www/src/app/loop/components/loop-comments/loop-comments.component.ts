@@ -6,7 +6,7 @@ import { LoopCommentComponent } from '../loop-comment/loop-comment.component';
 @Component({
   selector: 'glp-loop-comments',
   templateUrl: './loop-comments.component.html',
-  styleUrls: ['./loop-comments.component.scss'],
+  styleUrls: ['./loop-comments.component.css'],
   standalone: true,
   imports: [LoopCommentComponent],
 })

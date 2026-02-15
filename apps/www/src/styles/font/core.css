@@ -1,0 +1,144 @@
+/* FONT AWESOME CORE
+ * -------------------------- */
+
+[class^='icon-'],
+[class*=' icon-'] {
+  font-family: Batch;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  *margin-right: 0.3em; /* fixes ie7 issues */
+}
+
+[class^='icon-']:before,
+[class*=' icon-']:before {
+  text-decoration: inherit;
+  display: inline-block;
+  speak: none;
+  margin-right: 0.25em;
+  line-height: 1em;
+}
+
+/* makes the font 33% larger relative to the icon container */
+.icon-large:before {
+  vertical-align: -10%;
+  font-size: calc(4 / 3 * 1em);
+}
+
+/* icon list */
+ul.icons li {
+  display: inline-block;
+  margin: 0;
+  padding: 0.2em 0.25em 0.15em;
+  border-radius: 3px;
+  font-size: 1.75em;
+}
+
+/* makes sure icons active on rollover in links */
+a [class^='icon-'],
+a [class*=' icon-'],
+a [class^='icon-']:before,
+a [class*=' icon-']:before {
+  display: inline;
+}
+
+/* increased font size for icon-large */
+[class^='icon-'].icon-fixed-width,
+[class*=' icon-'].icon-fixed-width {
+  display: inline-block;
+  width: calc(18 / 14 * 1em);
+  text-align: center;
+}
+
+[class^='icon-'].icon-fixed-width.icon-large,
+[class*=' icon-'].icon-fixed-width.icon-large {
+  width: calc(22 / 14 * 1em);
+}
+
+ul.icons-ul {
+  list-style-type: none;
+  text-indent: calc(-10 / 14 * 1em);
+  margin-left: calc(30 / 14 * 1em);
+}
+
+ul.icons-ul > li .icon-li {
+  width: calc(10 / 14 * 1em);
+  display: inline-block;
+  text-align: center;
+}
+
+/* allows usage of the hide class directly on font awesome icons */
+[class^='icon-'].hide,
+[class*=' icon-'].hide {
+  display: none;
+}
+
+/* Icon Borders
+ * ------------------------- */
+.icon-border {
+  border: solid 1px black;
+  padding: 0.2em 0.25em 0.15em;
+  border-radius: 3px;
+}
+
+/* Icon Sizes
+ * ------------------------- */
+
+.icon-2x {
+  font-size: 2em;
+}
+
+.icon-2x.icon-border {
+  border-width: 2px;
+  border-radius: 4px;
+}
+
+.icon-3x {
+  font-size: 3em;
+}
+
+.icon-3x.icon-border {
+  border-width: 3px;
+  border-radius: 5px;
+}
+
+.icon-4x {
+  font-size: 4em;
+}
+
+.icon-4x.icon-border {
+  border-width: 4px;
+  border-radius: 6px;
+}
+
+.icon-5x {
+  font-size: 5em;
+}
+
+.icon-5x.icon-border {
+  border-width: 5px;
+  border-radius: 7px;
+}
+
+/* Floats & Margins
+ * ------------------------- */
+
+/* Quick floats */
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+[class^='icon-'].pull-left,
+[class*=' icon-'].pull-left {
+  margin-right: 0.3em;
+}
+
+[class^='icon-'].pull-right,
+[class*=' icon-'].pull-right {
+  margin-left: 0.3em;
+}

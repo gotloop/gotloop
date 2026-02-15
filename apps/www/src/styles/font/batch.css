@@ -1,9 +1,7 @@
-@import '../variables';
-@import '../functions';
-@import 'path';
-@import 'core';
-@import 'extras';
-@import 'icons';
+@import 'path.css';
+@import 'core.css';
+@import 'extras.css';
+@import 'icons.css';
 
 .icon-000:before {
   content: '\f000';
@@ -63,6 +61,10 @@
 
 .icon-00E:before {
   content: '\f00E';
+}
+
+.icon-00F:before {
+  content: '\f00F';
 }
 
 .icon-010:before {
@@ -125,6 +127,10 @@
   content: '\f01E';
 }
 
+.icon-01F:before {
+  content: '\f01F';
+}
+
 .icon-020:before {
   content: '\f020';
 }
@@ -183,6 +189,10 @@
 
 .icon-02E:before {
   content: '\f02E';
+}
+
+.icon-02F:before {
+  content: '\f02F';
 }
 
 .icon-030:before {
@@ -245,6 +255,10 @@
   content: '\f03E';
 }
 
+.icon-03F:before {
+  content: '\f03F';
+}
+
 .icon-040:before {
   content: '\f040';
 }
@@ -303,6 +317,10 @@
 
 .icon-04E:before {
   content: '\f04E';
+}
+
+.icon-04F:before {
+  content: '\f04F';
 }
 
 .icon-050:before {
@@ -365,6 +383,10 @@
   content: '\f05E';
 }
 
+.icon-05F:before {
+  content: '\f05F';
+}
+
 .icon-060:before {
   content: '\f060';
 }
@@ -423,6 +445,10 @@
 
 .icon-06E:before {
   content: '\f06E';
+}
+
+.icon-06F:before {
+  content: '\f06F';
 }
 
 .icon-070:before {
@@ -485,6 +511,10 @@
   content: '\f07E';
 }
 
+.icon-07F:before {
+  content: '\f07F';
+}
+
 .icon-080:before {
   content: '\f080';
 }
@@ -543,6 +573,10 @@
 
 .icon-08E:before {
   content: '\f08E';
+}
+
+.icon-08F:before {
+  content: '\f08F';
 }
 
 .icon-090:before {
@@ -605,6 +639,10 @@
   content: '\f09E';
 }
 
+.icon-09F:before {
+  content: '\f09F';
+}
+
 .icon-0A0:before {
   content: '\f0A0';
 }
@@ -663,6 +701,10 @@
 
 .icon-0AE:before {
   content: '\f0AE';
+}
+
+.icon-0AF:before {
+  content: '\f0AF';
 }
 
 .icon-0B0:before {
@@ -725,6 +767,10 @@
   content: '\f0BE';
 }
 
+.icon-0BF:before {
+  content: '\f0BF';
+}
+
 .icon-0C0:before {
   content: '\f0C0';
 }
@@ -783,6 +829,10 @@
 
 .icon-0CE:before {
   content: '\f0CE';
+}
+
+.icon-0CF:before {
+  content: '\f0CF';
 }
 
 .icon-0D0:before {
@@ -845,6 +895,10 @@
   content: '\f0DE';
 }
 
+.icon-0DF:before {
+  content: '\f0DF';
+}
+
 .icon-0E0:before {
   content: '\f0E0';
 }
@@ -903,6 +957,74 @@
 
 .icon-0EE:before {
   content: '\f0EE';
+}
+
+.icon-0EF:before {
+  content: '\f0EF';
+}
+
+.icon-0F0:before {
+  content: '\f0F0';
+}
+
+.icon-0F1:before {
+  content: '\f0F1';
+}
+
+.icon-0F2:before {
+  content: '\f0F2';
+}
+
+.icon-0F3:before {
+  content: '\f0F3';
+}
+
+.icon-0F4:before {
+  content: '\f0F4';
+}
+
+.icon-0F5:before {
+  content: '\f0F5';
+}
+
+.icon-0F6:before {
+  content: '\f0F6';
+}
+
+.icon-0F7:before {
+  content: '\f0F7';
+}
+
+.icon-0F8:before {
+  content: '\f0F8';
+}
+
+.icon-0F9:before {
+  content: '\f0F9';
+}
+
+.icon-0FA:before {
+  content: '\f0FA';
+}
+
+.icon-0FB:before {
+  content: '\f0FB';
+}
+
+.icon-0FC:before {
+  content: '\f0FC';
+}
+
+.icon-0FD:before {
+  content: '\f0FD';
+}
+
+.icon-0FE:before {
+  content: '\f0FE';
+}
+
+.icon-0FF:before {
+  content: '\f0FF';
 }
 
 .icon-100:before {
@@ -965,6 +1087,10 @@
   content: '\f10E';
 }
 
+.icon-10F:before {
+  content: '\f10F';
+}
+
 .icon-110:before {
   content: '\f110';
 }
@@ -1023,6 +1149,10 @@
 
 .icon-11E:before {
   content: '\f11E';
+}
+
+.icon-11F:before {
+  content: '\f11F';
 }
 
 .icon-120:before {
@@ -1085,6 +1215,10 @@
   content: '\f12E';
 }
 
+.icon-12F:before {
+  content: '\f12F';
+}
+
 .icon-130:before {
   content: '\f130';
 }
@@ -1143,6 +1277,10 @@
 
 .icon-13E:before {
   content: '\f13E';
+}
+
+.icon-13F:before {
+  content: '\f13F';
 }
 
 .icon-140:before {
@@ -1205,6 +1343,10 @@
   content: '\f14E';
 }
 
+.icon-14F:before {
+  content: '\f14F';
+}
+
 .icon-150:before {
   content: '\f150';
 }
@@ -1263,6 +1405,10 @@
 
 .icon-15E:before {
   content: '\f15E';
+}
+
+.icon-15F:before {
+  content: '\f15F';
 }
 
 .icon-160:before {
@@ -1325,6 +1471,10 @@
   content: '\f16E';
 }
 
+.icon-16F:before {
+  content: '\f16F';
+}
+
 .icon-170:before {
   content: '\f170';
 }
@@ -1375,4 +1525,528 @@
 
 .icon-17C:before {
   content: '\f17C';
+}
+
+.icon-17D:before {
+  content: '\f17D';
+}
+
+.icon-17E:before {
+  content: '\f17E';
+}
+
+.icon-17F:before {
+  content: '\f17F';
+}
+
+.icon-180:before {
+  content: '\f180';
+}
+
+.icon-181:before {
+  content: '\f181';
+}
+
+.icon-182:before {
+  content: '\f182';
+}
+
+.icon-183:before {
+  content: '\f183';
+}
+
+.icon-184:before {
+  content: '\f184';
+}
+
+.icon-185:before {
+  content: '\f185';
+}
+
+.icon-186:before {
+  content: '\f186';
+}
+
+.icon-187:before {
+  content: '\f187';
+}
+
+.icon-188:before {
+  content: '\f188';
+}
+
+.icon-189:before {
+  content: '\f189';
+}
+
+.icon-18A:before {
+  content: '\f18A';
+}
+
+.icon-18B:before {
+  content: '\f18B';
+}
+
+.icon-18C:before {
+  content: '\f18C';
+}
+
+.icon-18D:before {
+  content: '\f18D';
+}
+
+.icon-18E:before {
+  content: '\f18E';
+}
+
+.icon-18F:before {
+  content: '\f18F';
+}
+
+.icon-190:before {
+  content: '\f190';
+}
+
+.icon-191:before {
+  content: '\f191';
+}
+
+.icon-192:before {
+  content: '\f192';
+}
+
+.icon-193:before {
+  content: '\f193';
+}
+
+.icon-194:before {
+  content: '\f194';
+}
+
+.icon-195:before {
+  content: '\f195';
+}
+
+.icon-196:before {
+  content: '\f196';
+}
+
+.icon-197:before {
+  content: '\f197';
+}
+
+.icon-198:before {
+  content: '\f198';
+}
+
+.icon-199:before {
+  content: '\f199';
+}
+
+.icon-19A:before {
+  content: '\f19A';
+}
+
+.icon-19B:before {
+  content: '\f19B';
+}
+
+.icon-19C:before {
+  content: '\f19C';
+}
+
+.icon-19D:before {
+  content: '\f19D';
+}
+
+.icon-19E:before {
+  content: '\f19E';
+}
+
+.icon-19F:before {
+  content: '\f19F';
+}
+
+.icon-1A0:before {
+  content: '\f1A0';
+}
+
+.icon-1A1:before {
+  content: '\f1A1';
+}
+
+.icon-1A2:before {
+  content: '\f1A2';
+}
+
+.icon-1A3:before {
+  content: '\f1A3';
+}
+
+.icon-1A4:before {
+  content: '\f1A4';
+}
+
+.icon-1A5:before {
+  content: '\f1A5';
+}
+
+.icon-1A6:before {
+  content: '\f1A6';
+}
+
+.icon-1A7:before {
+  content: '\f1A7';
+}
+
+.icon-1A8:before {
+  content: '\f1A8';
+}
+
+.icon-1A9:before {
+  content: '\f1A9';
+}
+
+.icon-1AA:before {
+  content: '\f1AA';
+}
+
+.icon-1AB:before {
+  content: '\f1AB';
+}
+
+.icon-1AC:before {
+  content: '\f1AC';
+}
+
+.icon-1AD:before {
+  content: '\f1AD';
+}
+
+.icon-1AE:before {
+  content: '\f1AE';
+}
+
+.icon-1AF:before {
+  content: '\f1AF';
+}
+
+.icon-1B0:before {
+  content: '\f1B0';
+}
+
+.icon-1B1:before {
+  content: '\f1B1';
+}
+
+.icon-1B2:before {
+  content: '\f1B2';
+}
+
+.icon-1B3:before {
+  content: '\f1B3';
+}
+
+.icon-1B4:before {
+  content: '\f1B4';
+}
+
+.icon-1B5:before {
+  content: '\f1B5';
+}
+
+.icon-1B6:before {
+  content: '\f1B6';
+}
+
+.icon-1B7:before {
+  content: '\f1B7';
+}
+
+.icon-1B8:before {
+  content: '\f1B8';
+}
+
+.icon-1B9:before {
+  content: '\f1B9';
+}
+
+.icon-1BA:before {
+  content: '\f1BA';
+}
+
+.icon-1BB:before {
+  content: '\f1BB';
+}
+
+.icon-1BC:before {
+  content: '\f1BC';
+}
+
+.icon-1BD:before {
+  content: '\f1BD';
+}
+
+.icon-1BE:before {
+  content: '\f1BE';
+}
+
+.icon-1BF:before {
+  content: '\f1BF';
+}
+
+.icon-1C0:before {
+  content: '\f1C0';
+}
+
+.icon-1C1:before {
+  content: '\f1C1';
+}
+
+.icon-1C2:before {
+  content: '\f1C2';
+}
+
+.icon-1C3:before {
+  content: '\f1C3';
+}
+
+.icon-1C4:before {
+  content: '\f1C4';
+}
+
+.icon-1C5:before {
+  content: '\f1C5';
+}
+
+.icon-1C6:before {
+  content: '\f1C6';
+}
+
+.icon-1C7:before {
+  content: '\f1C7';
+}
+
+.icon-1C8:before {
+  content: '\f1C8';
+}
+
+.icon-1C9:before {
+  content: '\f1C9';
+}
+
+.icon-1CA:before {
+  content: '\f1CA';
+}
+
+.icon-1CB:before {
+  content: '\f1CB';
+}
+
+.icon-1CC:before {
+  content: '\f1CC';
+}
+
+.icon-1CD:before {
+  content: '\f1CD';
+}
+
+.icon-1CE:before {
+  content: '\f1CE';
+}
+
+.icon-1CF:before {
+  content: '\f1CF';
+}
+
+.icon-1D0:before {
+  content: '\f1D0';
+}
+
+.icon-1D1:before {
+  content: '\f1D1';
+}
+
+.icon-1D2:before {
+  content: '\f1D2';
+}
+
+.icon-1D3:before {
+  content: '\f1D3';
+}
+
+.icon-1D4:before {
+  content: '\f1D4';
+}
+
+.icon-1D5:before {
+  content: '\f1D5';
+}
+
+.icon-1D6:before {
+  content: '\f1D6';
+}
+
+.icon-1D7:before {
+  content: '\f1D7';
+}
+
+.icon-1D8:before {
+  content: '\f1D8';
+}
+
+.icon-1D9:before {
+  content: '\f1D9';
+}
+
+.icon-1DA:before {
+  content: '\f1DA';
+}
+
+.icon-1DB:before {
+  content: '\f1DB';
+}
+
+.icon-1DC:before {
+  content: '\f1DC';
+}
+
+.icon-1DD:before {
+  content: '\f1DD';
+}
+
+.icon-1DE:before {
+  content: '\f1DE';
+}
+
+.icon-1DF:before {
+  content: '\f1DF';
+}
+
+.icon-1E0:before {
+  content: '\f1E0';
+}
+
+.icon-1E1:before {
+  content: '\f1E1';
+}
+
+.icon-1E2:before {
+  content: '\f1E2';
+}
+
+.icon-1E3:before {
+  content: '\f1E3';
+}
+
+.icon-1E4:before {
+  content: '\f1E4';
+}
+
+.icon-1E5:before {
+  content: '\f1E5';
+}
+
+.icon-1E6:before {
+  content: '\f1E6';
+}
+
+.icon-1E7:before {
+  content: '\f1E7';
+}
+
+.icon-1E8:before {
+  content: '\f1E8';
+}
+
+.icon-1E9:before {
+  content: '\f1E9';
+}
+
+.icon-1EA:before {
+  content: '\f1EA';
+}
+
+.icon-1EB:before {
+  content: '\f1EB';
+}
+
+.icon-1EC:before {
+  content: '\f1EC';
+}
+
+.icon-1ED:before {
+  content: '\f1ED';
+}
+
+.icon-1EE:before {
+  content: '\f1EE';
+}
+
+.icon-1EF:before {
+  content: '\f1EF';
+}
+
+.icon-1F0:before {
+  content: '\f1F0';
+}
+
+.icon-1F1:before {
+  content: '\f1F1';
+}
+
+.icon-1F2:before {
+  content: '\f1F2';
+}
+
+.icon-1F3:before {
+  content: '\f1F3';
+}
+
+.icon-1F4:before {
+  content: '\f1F4';
+}
+
+.icon-1F5:before {
+  content: '\f1F5';
+}
+
+.icon-1F6:before {
+  content: '\f1F6';
+}
+
+.icon-1F7:before {
+  content: '\f1F7';
+}
+
+.icon-1F8:before {
+  content: '\f1F8';
+}
+
+.icon-1F9:before {
+  content: '\f1F9';
+}
+
+.icon-1FA:before {
+  content: '\f1FA';
+}
+
+.icon-1FB:before {
+  content: '\f1FB';
+}
+
+.icon-1FC:before {
+  content: '\f1FC';
+}
+
+.icon-1FD:before {
+  content: '\f1FD';
+}
+
+.icon-1FE:before {
+  content: '\f1FE';
+}
+
+.icon-1FF:before {
+  content: '\f1FF';
 }

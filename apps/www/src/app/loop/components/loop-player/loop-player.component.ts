@@ -10,7 +10,7 @@ import { CardComponent } from '../../../shell/components/card/card.component';
 @Component({
   selector: 'glp-loop-player',
   templateUrl: './loop-player.component.html',
-  styleUrls: ['./loop-player.component.scss'],
+  styleUrls: ['./loop-player.component.css'],
   standalone: true,
   imports: [
     CardComponent,

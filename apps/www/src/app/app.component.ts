@@ -7,7 +7,7 @@ import { FooterComponent } from './shell/components/footer/footer.component';
 @Component({
   selector: 'glp-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.css'],
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
 })

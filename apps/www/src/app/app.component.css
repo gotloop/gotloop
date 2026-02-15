@@ -1,3 +1,5 @@
+@import '../styles/breakpoints.css';
+
 :host {
   position: absolute;
   bottom: 0;
@@ -6,22 +8,26 @@
   right: 0;
 }
 
-@import 'sass-breakpoints/index';
-
 .gotloop-main {
   margin-top: 5em;
   height: 100%;
-  @include breakpoint('sm', 'md') {
+}
+
+@media (--viewport-sm-only) {
+  .gotloop-main {
     margin-top: 0em;
     padding-left: 7em;
-    // background: green;
   }
-  @include breakpoint('md') {
-    // background: red;
+}
+
+@media (--viewport-md) {
+  .gotloop-main {
     margin-top: 3em;
   }
-  @include breakpoint('lg') {
-    // background: blue;
+}
+
+@media (--viewport-lg) {
+  .gotloop-main {
     margin-top: 3em;
   }
 }

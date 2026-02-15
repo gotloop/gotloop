@@ -4,7 +4,7 @@ import { IconComponent } from '../../../shell/components/icon/icon.component';
 @Component({
   selector: 'glp-noizer-page',
   templateUrl: './noizer-page.component.html',
-  styleUrls: ['./noizer-page.component.scss'],
+  styleUrls: ['./noizer-page.component.css'],
   standalone: true,
   imports: [IconComponent],
 })

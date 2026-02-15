@@ -7,7 +7,7 @@ import { HeaderSearchComponent } from '../header-search/header-search.component'
 @Component({
   selector: 'glp-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.css'],
   standalone: true,
   imports: [HeaderSearchComponent, RouterLink, IconComponent],
 })

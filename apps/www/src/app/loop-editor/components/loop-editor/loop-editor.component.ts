@@ -13,7 +13,7 @@ export enum LoopEditorSteps {
 @Component({
   selector: 'glp-loop-editor',
   templateUrl: './loop-editor.component.html',
-  styleUrls: ['./loop-editor.component.scss'],
+  styleUrls: ['./loop-editor.component.css'],
   standalone: true,
 })
 export class LoopEditorComponent {}

@@ -1,0 +1,54 @@
+.loop-player {
+  color: var(--color-main);
+}
+
+.loop-player.is-playing {
+  margin: -0.5em -1em 2em;
+  transition: margin 0.3s ease-in;
+}
+
+.loop-player .loop-viz {
+  height: 2.5em;
+}
+
+.loop-player .loop-details {
+  min-height: 2.5em;
+  margin-top: 2.5em;
+}
+
+.loop-buttons {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.loop-buttons .loop-play-pause-button {
+  --rounded-size: 4em;
+  --rounded-color: var(--color-green);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.loop-buttons .loop-like-button {
+  --rounded-size: 3em;
+  --rounded-color: var(--color-red-dark);
+  margin-left: 1em;
+  text-align: center;
+}
+
+.loop-buttons .loop-comment-button {
+  --rounded-size: 2em;
+  --rounded-color: var(--color-blue-dark);
+  padding: 0 1em;
+  width: auto;
+  margin-left: 1em;
+  flex: 0 1 auto;
+}
+
+.loop-buttons .loop-button-spacer {
+  flex: 1 1 auto;
+}
