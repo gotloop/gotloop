@@ -73,6 +73,14 @@
         "jestConfig": "apps/adm/jest.config.ts",
         "tsConfig": "apps/adm/tsconfig.spec.json"
       }
+    },
+    "docker": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker build --target adm --build-arg NODE_VERSION=${NODE_VERSION:-24} -t ${DOCKER_TAG:-gotloop-adm:latest} .",
+        "cwd": "."
+      },
+      "dependsOn": ["build"]
     }
   }
 }
