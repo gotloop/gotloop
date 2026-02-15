@@ -33,7 +33,8 @@ export const vpcPeering = new gcp.servicenetworking.Connection(`${resourcePrefix
 });
 
 // VPC Access Connector for Cloud Run → Cloud SQL
-export const vpcConnector = new gcp.vpcaccess.Connector(`${resourcePrefix}gotloop-connector`, {
+export const vpcConnector = new gcp.vpcaccess.Connector(`${resourcePrefix}gl-conn`, {
+  name: isProduction ? "gl-connector" : `stg-gl-conn`,
   region,
   ipCidrRange: "10.8.0.0/28",
   network: network.name,
