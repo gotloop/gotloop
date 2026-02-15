@@ -5,7 +5,7 @@ describe('SynthNodeComponent', () => {
   let fixture: ComponentFixture<SynthNodeComponent>;
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SynthNodeComponent],
+      imports: [SynthNodeComponent],
       teardown: { destroyAfterEach: false },
     }).compileComponents();
   }));

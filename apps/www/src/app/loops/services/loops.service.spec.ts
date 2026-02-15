@@ -5,7 +5,7 @@ describe('LoopsService', () => {
     TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } }),
   );
   it('should be created', () => {
-    const service: LoopsService = TestBed.get(LoopsService);
+    const service: LoopsService = TestBed.inject(LoopsService);
     expect(service).toBeTruthy();
   });
 });
