@@ -55,7 +55,7 @@
     "@ngrx/store": "21.0.1",
     "@ngrx/store-devtools": "21.0.1",
     "angular2-draggable": "^16.0.0",
-    "axios": "^1.6.0",
+    "axios": "^1.13.5",
     "dotenv": "^16.4.5",
     "fastify": "5.2.2",
     "fastify-plugin": "5.0.1",
