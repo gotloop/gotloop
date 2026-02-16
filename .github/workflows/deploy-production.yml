@@ -110,7 +110,14 @@ jobs:
           work-dir: infra
           config-map: |
             {
-              "gotloop:imageTag": { "value": "${{ steps.tag.outputs.sha }}" }
+              "gotloop:imageTag": { "value": "${{ steps.tag.outputs.sha }}" },
+              "gotloop:environment": { "value": "production" },
+              "gotloop:domain": { "value": "gotloop.io" },
+              "gotloop:cloudSqlTier": { "value": "db-custom-1-3840" },
+              "gotloop:minInstances": { "value": "1" },
+              "gotloop:maxInstances": { "value": "10" },
+              "gcp:project": { "value": "gotloop" },
+              "gcp:region": { "value": "europe-west9" }
             }
         env:
           PULUMI_BACKEND_URL: ${{ secrets.PULUMI_BACKEND_URL }}

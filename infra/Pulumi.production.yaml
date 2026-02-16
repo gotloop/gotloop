@@ -6,4 +6,3 @@ config:
   gotloop:cloudSqlTier: db-custom-1-3840
   gotloop:minInstances: "1"
   gotloop:maxInstances: "10"
-encryptionsalt: v1:nV1HrpDwtqM=:v1:srpLr9pUsMMDAJsC:VrkD5wFCE39m59oiypSZhnECrcRj5Q==
