@@ -144,21 +144,21 @@ jobs:
           script: |
             const prNumber = '${{ github.event.pull_request.number }}';
             const tag = '${{ steps.tag.outputs.tag }}';
-            const outputs = JSON.parse('${{ steps.pulumi.outputs.output }}' || '{}');
-            const wwwUrl = outputs.wwwUrl || '(pending)';
-            const apiUrl = outputs.apiUrl || '(pending)';
-            const body = `## Staging Deployment
+            const wwwUrl = '${{ steps.pulumi.outputs.wwwUrl }}' || '(pending)';
+            const apiUrl = '${{ steps.pulumi.outputs.apiUrl }}' || '(pending)';
+            const body = [
+              '## Staging Deployment',
+              '',
+              '| Service | URL |',
+              '|---------|-----|',
+              `| WWW | ${wwwUrl} |`,
+              `| API | ${apiUrl} |`,
+              '',
+              `> Commit: \`${{ github.event.pull_request.head.sha }}\``,
+              `> Image tag: \`${tag}\``,
+              `> Stack: \`staging-pr-${prNumber}\``,
+            ].join('\n');
 
-            | Service | URL |
-            |---------|-----|
-            | WWW | ${wwwUrl} |
-            | API | ${apiUrl} |
-
-            > Commit: \`${{ github.event.pull_request.head.sha }}\`
-            > Image tag: \`${tag}\`
-            > Stack: \`staging-pr-${prNumber}\``;
-
-            // Find existing comment
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
