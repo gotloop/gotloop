@@ -131,7 +131,7 @@ export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www`, {
         resources: {
           limits: {
             cpu: "1",
-            memory: "256Mi",
+            memory: "512Mi",
           },
         },
       },
@@ -167,7 +167,7 @@ export const admService = isProduction
             resources: {
               limits: {
                 cpu: "1",
-                memory: "256Mi",
+                memory: "512Mi",
               },
             },
           },
