@@ -4,5 +4,5 @@ config:
   gotloop:environment: production
   gotloop:domain: gotloop.io
   gotloop:cloudSqlTier: db-g1-small
-  gotloop:minInstances: "1"
+  gotloop:minInstances: "0"
   gotloop:maxInstances: "10"
