@@ -1,6 +1,6 @@
 import * as gcp from "@pulumi/gcp";
 import * as pulumi from "@pulumi/pulumi";
-import { project, region, resourcePrefix, isProduction } from "./config";
+import { project, region, resourcePrefix } from "./config";
 
 // VPC Network
 export const network = new gcp.compute.Network(`${resourcePrefix}gotloop-vpc`, {
@@ -32,14 +32,12 @@ export const vpcPeering = new gcp.servicenetworking.Connection(`${resourcePrefix
   reservedPeeringRanges: [privateIpRange.name],
 });
 
-// VPC Access Connector for Cloud Run → Cloud SQL
-export const vpcConnector = new gcp.vpcaccess.Connector(`${resourcePrefix}gl-conn`, {
-  name: isProduction ? "gl-connector" : `stg-gl-conn`,
-  region,
+// Direct VPC Egress subnet for Cloud Run → Cloud SQL
+// Cloud Run uses this subnet directly instead of a VPC Access Connector,
+// eliminating the need for always-on connector VMs.
+export const vpcEgressSubnet = new gcp.compute.Subnetwork(`${resourcePrefix}gotloop-vpc-egress`, {
   ipCidrRange: "10.8.0.0/28",
-  network: network.name,
-  machineType: "e2-micro",
-  minInstances: 2,
-  maxInstances: 3,
+  region,
+  network: network.id,
   project,
 });
