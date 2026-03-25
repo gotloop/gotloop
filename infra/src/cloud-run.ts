@@ -130,7 +130,7 @@ export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www`, {
         envs: [{ name: "HOST", value: "0.0.0.0" }],
         resources: {
           limits: {
-            cpu: "0.5",
+            cpu: "1",
             memory: "256Mi",
           },
         },
@@ -166,7 +166,7 @@ export const admService = isProduction
             ports: { containerPort: 80 },
             resources: {
               limits: {
-                cpu: "0.5",
+                cpu: "1",
                 memory: "256Mi",
               },
             },
