@@ -10,7 +10,7 @@ import {
   isProduction,
 } from "./config";
 import { registryUrl } from "./registry";
-import { vpcConnector } from "./networking";
+import { network, vpcEgressSubnet } from "./networking";
 import {
   databaseUrlSecret,
   databaseUrlSecretVersion,
@@ -48,7 +48,12 @@ export const apiService = new gcp.cloudrunv2.Service(
         maxInstanceCount: maxInstances,
       },
       vpcAccess: {
-        connector: vpcConnector.id,
+        networkInterfaces: [
+          {
+            network: network.id,
+            subnetwork: vpcEgressSubnet.id,
+          },
+        ],
         egress: "PRIVATE_RANGES_ONLY",
       },
       containers: [
