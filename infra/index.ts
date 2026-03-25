@@ -9,19 +9,16 @@ import "./src/database";
 import "./src/secrets";
 import "./src/cloud-run";
 
-// Production-only: load balancer, DNS, certificates, Cloud Armor
+// Production-only: load balancer, certificates, Cloud Armor
+// DNS is managed externally — see setup guide for required A and CNAME records
 if (isProduction) {
   const { lbIpAddress } = require("./src/load-balancer");
-  const { createDnsRecords } = require("./src/dns");
 
   // These are imported as side effects (they register resources on import)
   require("./src/certificates");
   require("./src/cloud-armor");
 
-  // Create DNS records pointing to the LB IP
-  createDnsRecords(lbIpAddress as pulumi.Output<string>);
-
-  // Export LB IP
+  // Export LB IP (needed to configure external DNS)
   exports.lbIpAddress = lbIpAddress;
 }
 
