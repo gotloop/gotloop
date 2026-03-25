@@ -4,5 +4,5 @@ config:
   gotloop:environment: staging
   gotloop:domain: gotloop.io
   gotloop:cloudSqlTier: db-f1-micro
-  gotloop:minInstances: "0"
-  gotloop:maxInstances: "2"
+  gotloop:minInstances: '0'
+  gotloop:maxInstances: '2'

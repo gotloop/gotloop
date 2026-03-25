@@ -42,6 +42,9 @@ export const apiService = new gcp.cloudrunv2.Service(
     deletionProtection: false,
     ingress: isProduction ? "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" : "INGRESS_TRAFFIC_ALL",
     template: {
+      annotations: {
+        "run.googleapis.com/cpu-throttling": "true",
+      },
       serviceAccount: cloudRunSa.email,
       scaling: {
         minInstanceCount: minInstances,
@@ -118,6 +121,9 @@ export const wwwService = new gcp.cloudrunv2.Service(`${resourcePrefix}www`, {
   deletionProtection: false,
   ingress: isProduction ? "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" : "INGRESS_TRAFFIC_ALL",
   template: {
+    annotations: {
+      "run.googleapis.com/cpu-throttling": "true",
+    },
     serviceAccount: cloudRunSa.email,
     scaling: {
       minInstanceCount: minInstances,
@@ -156,6 +162,9 @@ export const admService = isProduction
       deletionProtection: false,
       ingress: "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER",
       template: {
+        annotations: {
+          "run.googleapis.com/cpu-throttling": "true",
+        },
         scaling: {
           minInstanceCount: 0,
           maxInstanceCount: 2,
