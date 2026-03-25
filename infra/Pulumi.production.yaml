@@ -3,6 +3,6 @@ config:
   gcp:region: europe-west9
   gotloop:environment: production
   gotloop:domain: gotloop.io
-  gotloop:cloudSqlTier: db-custom-1-3840
+  gotloop:cloudSqlTier: db-g1-small
   gotloop:minInstances: "1"
   gotloop:maxInstances: "10"

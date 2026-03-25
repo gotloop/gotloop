@@ -20,10 +20,10 @@ export const sqlInstance = new gcp.sql.DatabaseInstance(
     settings: {
       edition: "ENTERPRISE",
       tier: cloudSqlTier,
-      availabilityType: isProduction ? "REGIONAL" : "ZONAL",
+      availabilityType: "ZONAL",
       backupConfiguration: {
         enabled: isProduction,
-        pointInTimeRecoveryEnabled: isProduction,
+        pointInTimeRecoveryEnabled: false,
         startTime: "03:00",
       },
       ipConfiguration: {
