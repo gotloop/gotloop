@@ -19,7 +19,7 @@ export const securityPolicy = new gcp.compute.SecurityPolicy("gotloop-cloud-armo
       },
       description: "Default allow all traffic",
     },
-    // Rate limiting: 100 req/min per IP
+    // Rate limiting: 100 req/min per IP (free — no per-request WAF cost)
     {
       action: "rate_based_ban",
       priority: 1000,
@@ -40,28 +40,6 @@ export const securityPolicy = new gcp.compute.SecurityPolicy("gotloop-cloud-armo
         banDurationSec: 60,
       },
       description: "Rate limit: 100 req/min per IP",
-    },
-    // SQLi protection
-    {
-      action: "deny(403)",
-      priority: 2000,
-      match: {
-        expr: {
-          expression: "evaluatePreconfiguredWaf('sqli-v33-stable')",
-        },
-      },
-      description: "Block SQL injection attacks",
-    },
-    // XSS protection
-    {
-      action: "deny(403)",
-      priority: 2001,
-      match: {
-        expr: {
-          expression: "evaluatePreconfiguredWaf('xss-v33-stable')",
-        },
-      },
-      description: "Block XSS attacks",
     },
   ],
 });
