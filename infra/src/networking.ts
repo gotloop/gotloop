@@ -36,7 +36,7 @@ export const vpcPeering = new gcp.servicenetworking.Connection(`${resourcePrefix
 // Cloud Run uses this subnet directly instead of a VPC Access Connector,
 // eliminating the need for always-on connector VMs.
 export const vpcEgressSubnet = new gcp.compute.Subnetwork(`${resourcePrefix}gotloop-vpc-egress`, {
-  ipCidrRange: "10.8.0.0/28",
+  ipCidrRange: "10.9.0.0/28",
   region,
   network: network.id,
   project,
