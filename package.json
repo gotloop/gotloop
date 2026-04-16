@@ -45,7 +45,7 @@
     "@angular/ssr": "21.1.4",
     "@fastify/autoload": "6.0.3",
     "@fastify/sensible": "6.0.4",
-    "@fastify/static": "^9.0.0",
+    "@fastify/static": "^9.1.1",
     "@ngneat/falso": "^8.0.2",
     "@ngrx/effects": "21.0.1",
     "@ngrx/entity": "21.0.1",
